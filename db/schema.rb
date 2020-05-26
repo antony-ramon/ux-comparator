@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 2020_05_26_134419) do
     t.index ["typology_id"], name: "index_indicators_on_typology_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "typology_id", null: false
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+    t.index ["typology_id"], name: "index_messages_on_typology_id"
+  end
+
   create_table "typologies", force: :cascade do |t|
     t.string "title"
     t.string "process_name"
@@ -83,6 +95,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_134419) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "typologies"
   add_foreign_key "articles", "fields"
   add_foreign_key "companies", "fields"
   add_foreign_key "indicators", "companies"
