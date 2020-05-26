@@ -1,0 +1,2 @@
+class UserField < ApplicationRecord
+end
