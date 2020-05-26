@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_111502) do
+ActiveRecord::Schema.define(version: 2020_05_26_134419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_111502) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "field_id"
+    t.index ["field_id"], name: "index_articles_on_field_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_111502) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "field_id"
+    t.index ["field_id"], name: "index_companies_on_field_id"
   end
 
   create_table "fields", force: :cascade do |t|
@@ -40,6 +44,10 @@ ActiveRecord::Schema.define(version: 2020_05_26_111502) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "company_id"
+    t.bigint "typology_id"
+    t.index ["company_id"], name: "index_indicators_on_company_id"
+    t.index ["typology_id"], name: "index_indicators_on_typology_id"
   end
 
   create_table "typologies", force: :cascade do |t|
@@ -47,11 +55,17 @@ ActiveRecord::Schema.define(version: 2020_05_26_111502) do
     t.string "process_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "field_id"
+    t.index ["field_id"], name: "index_typologies_on_field_id"
   end
 
   create_table "user_fields", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.bigint "field_id"
+    t.index ["field_id"], name: "index_user_fields_on_field_id"
+    t.index ["user_id"], name: "index_user_fields_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,4 +83,11 @@ ActiveRecord::Schema.define(version: 2020_05_26_111502) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "fields"
+  add_foreign_key "companies", "fields"
+  add_foreign_key "indicators", "companies"
+  add_foreign_key "indicators", "typologies"
+  add_foreign_key "typologies", "fields"
+  add_foreign_key "user_fields", "fields"
+  add_foreign_key "user_fields", "users"
 end
