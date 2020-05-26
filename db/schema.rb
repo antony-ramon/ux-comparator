@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2020_05_26_100938) do
     t.string "author"
     t.date "publication_date"
     t.string "content"
+  end
+  
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "indicators", force: :cascade do |t|
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
