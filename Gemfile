@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.6.6'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
