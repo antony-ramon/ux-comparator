@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :messages, only: [:index, :show, :new, :create]
   resources :fields, only: [] do
-    resources :articles, only: [:index, :show]
+    # resources :articles, only: [:index, :show]
     resources :typologies, only: [:index, :show] do
       resources :indicators, only: [:index]
     end
   end
+  resources :articles, only: [:index]
   get '/dashboard', to: 'dashboard#activity', as: :dashboard
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

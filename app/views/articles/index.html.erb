@@ -1,0 +1,31 @@
+<p>articles</p>
+
+<div class="col-8">
+			<div class="articles row">
+				<% @articles.each do |article| %>
+					<div class="col-4">
+						<%= link_to "#", class: "" do %>
+							<div class="card_article">
+								<% if article.photo.attached? %>
+									<%= cl_image_tag article.photo.key, crop: :fill%>
+								<% else %>
+					    		 <%= image_tag "filler_picture.jpg", alt: "alttext" %>
+					  		<% end %>
+					  		<div class="text-center">
+								<p id="title"><%= article.title %></p>
+								</div>
+							</div>
+						<% end %>
+						</div>
+					<% end %>
+			</div>		
+</div>
+
+<div class="filter">
+	<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
+<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
+ -->
+ 		<%= f.input :field, collection: Field.all.pluck(:name) %>
+		<%= f.submit %>
+	<% end %>
+</div>
