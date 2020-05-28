@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :indicators, only: [:index]
     end
   end
-  resources :articles, only: [:index]
+  resources :articles, only: [:index, :show]
   get '/dashboard', to: 'dashboard#activity', as: :dashboard
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
