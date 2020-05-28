@@ -2240,4 +2240,26 @@ puts "            Messages saved!"
 
 
 
+puts "Creating likes (act_as_votable) to articles..."
+
+article_001.liked_by user_001
+article_002.liked_by user_001
+article_003.liked_by user_001
+article_001.liked_by user_002
+article_004.liked_by user_004
+
+puts "    Likes (act as votable) created for articles !"
+
+
+puts "Creating likes (act_as_votable) to typologies..."
+
+typology_001.liked_by user_001
+typology_002.liked_by user_001
+typology_003.liked_by user_001
+typology_001.liked_by user_002
+typology_004.liked_by user_004
+
+puts "    Likes (act as votable) created for typologies!"
+
+
 puts "ALL GOOD !"
