@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
   get '/dashboard', to: 'dashboard#activity', as: :dashboard
-  get '/benchmark', to: 'dashboard#benchmark'
+  get '/benchmark', to: 'benchmarks#benchmark'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
