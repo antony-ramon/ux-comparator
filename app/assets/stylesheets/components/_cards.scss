@@ -1,0 +1,33 @@
+.card_article {
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    background-color: white;
+}
+a.article_link {
+    display: block;
+    padding: 10px;
+}
+.card-details {
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    padding: 1em;
+    margin: 1em auto;
+}
+.cards {
+	padding-top: 20px;
+}
+.card_article img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+.card_article p {
+    text-transform: capitalize;
+    margin-top: 10px;
+    color: black;
+    font-size: .8em;
+}
+.row {
+    margin-top: 1em;
+}
