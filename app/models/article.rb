@@ -3,4 +3,5 @@ class Article < ApplicationRecord
 	validates :content, uniqueness: true, presence: true
 	validates :field, presence: true
 	belongs_to :field
+  acts_as_votable
 end
