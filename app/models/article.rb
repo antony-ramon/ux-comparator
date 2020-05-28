@@ -4,7 +4,6 @@ class Article < ApplicationRecord
 	validates :content, uniqueness: true, presence: true
 	validates :field, presence: true
 	belongs_to :field
-
 	include PgSearch::Model
   	pg_search_scope :search_by_field,
     	associated_against: {
@@ -13,4 +12,5 @@ class Article < ApplicationRecord
     	using: {
       tsearch: { prefix: true }
     	}
+  acts_as_votable
 end
