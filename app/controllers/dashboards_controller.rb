@@ -1,4 +1,8 @@
 class DashboardsController < ApplicationController
-  def activity
+  # def activity
+  # end
+
+  def articles
+    @user = current_user
   end
 end
