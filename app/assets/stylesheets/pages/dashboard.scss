@@ -1,3 +1,9 @@
-.rating {
-color: $picotee_blue;
+#rating {
+  overflow: hidden;
+  height: 100%;
+  width: 1220px ;
+  background: $picotee_blue;
+  display: flex;
+  align-items: center;
+  color: white;
 }
