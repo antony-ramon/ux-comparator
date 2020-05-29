@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   # fields/:field_id/typologies?process=facturation
   resources :articles, only: [:index, :show]
-  get '/dashboard', to: 'dashboards#activity', as: :dashboard
+
+  get '/dashboard', to: 'dashboards#index', as: :dashboard
   get '/bookmarks', to: 'dashboards#bookmarks', as: :bookmarks
 end
 

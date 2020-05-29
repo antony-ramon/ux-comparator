@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
-  def activity
+  def index
+    @articles = policy_scope(Article).last(5)
+    @companies = Company.all.sort_by { |company| [company.name] }
   end
   def bookmarks
     @user = current_user
@@ -11,3 +13,4 @@ class DashboardsController < ApplicationController
     @typologies = Typology.all.sort_by { |typology| [typology.field.name, typology.process_name] }
   end
 end
+# @articles = @user.articles_liked
