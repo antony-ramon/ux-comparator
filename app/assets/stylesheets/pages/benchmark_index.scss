@@ -1,4 +1,7 @@
-
+.img_company_logo {
+  width: 36px;
+  height: auto;
+}
 
 .item_bench{
   color: black;
@@ -13,8 +16,11 @@
 }
 
 .container{
-display:flex;
-align-items: center;
-justify-content: space-between;
-box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-benchmark {
+  height: 100vh;
 }

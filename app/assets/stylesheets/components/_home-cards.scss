@@ -5,11 +5,15 @@
 	margin-top: 3em;
 }
 .perso-cards__container {
-	max-width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+	// max-width: 100%;
+	// display: flex;
+	// flex-direction: row;
+	// justify-content: space-between;
 }
+
 .perso-cards {
 	padding: 20px;
 	margin: 20px;
@@ -18,7 +22,13 @@
 	border-radius: 10px;
 	height: 500px;
 	max-width: 100%;
+  text-align: center;
 }
+
+.perso-cards .text {
+  text-align: left;
+}
+
 .perso-cards img {
 	width: 300px;
 	height: 300px;
@@ -39,6 +49,7 @@
 	font-weight: bold;
 	margin-top: -10px;
 }
+
 .text {
 	margin: 20px;
 }

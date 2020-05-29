@@ -17,7 +17,7 @@ a.article_link {
   padding: .3em;
 }
 .card_icons {
-  display: flex; 
+  display: flex;
   padding: 10px;
 }
 .cards_icons img {
@@ -25,6 +25,10 @@ a.article_link {
   height: 20px;
   width: 20px;
   margin-right: 20px;
+}
+
+.card_icons_size {
+  width: 20px;
 }
 .card_article p {
     text-transform: capitalize;

@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def index
-    @articles = policy_scope(Article).last(5)
+    @articles = policy_scope(Article).last(6)
     @companies = Company.all.sort_by { |company| [company.name] }
   end
   def bookmarks

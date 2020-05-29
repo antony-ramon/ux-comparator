@@ -12,5 +12,5 @@ class Article < ApplicationRecord
     	using: {
       tsearch: { prefix: true }
     	}
-  # acts_as_votable
+  acts_as_votable
 end
