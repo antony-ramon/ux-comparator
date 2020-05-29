@@ -1,12 +1,8 @@
-<div class="navbar">
-	<div class="navbar-logged">
-		<%= link_to "#", class: "navbar-brand" do %>
-		<%= image_tag "logo_black" %>
-		<p>Welcome <%= link_to "username", class: "navbar-brand"%>!</p>
-    <% end %>
+<div class="navbar logged">
+	<%= link_to "#", class: "navbar-brand" do %>
+		<%= image_tag "logo_white" %>
+	<% end %>
+	<div class="navbar-buttons">
+		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 	</div>
-
-<div class="navbar-app">
-</div>
-	<%= link_to "Login", new_user_session_path, class: "nav-link" %>
 </div>
