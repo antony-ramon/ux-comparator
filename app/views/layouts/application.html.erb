@@ -7,15 +7,18 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% if  user_signed_in? %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/visitor_navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <div class="content-wrapper">
       <%= yield %>
-    </div>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
