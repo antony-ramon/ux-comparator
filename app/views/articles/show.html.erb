@@ -1,0 +1,11 @@
+<div class="container">
+ <div class="d-flex row">
+  	<div id="picture" class="col-8">
+  	  <% if @article.photo.attached? %>
+          <%= cl_image_tag @article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
+        <% else %>
+          <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
+      <% end %>
+  	</div>
+  </div>
+</div>
