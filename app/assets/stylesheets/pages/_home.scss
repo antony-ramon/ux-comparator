@@ -5,9 +5,59 @@
   background-position: center;
   padding: 100px 0;
   margin-bottom: 30px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .banner img {
 	width: 50%;
 	height: 150px;
 	align-item: center;
+}
+.banner a {
+	font-size: .7em;
+	padding: 10px;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+  border-radius: 4px;
+  font-weight: lighter;
+  background: $celeste;
+  transition: background 0.3s ease;
+  border: 1px solid $picotee_blue;
+  	&:hover{
+  	background: $picotee_blue;
+  	color: #fff;
+  	}
+}
+.content-wrapper {
+  background-color: $celeste;
+}
+.icons-container {
+	background-color: $picotee_blue;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+	max-width: 90%;
+	height: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-left: 50px;
+}
+.icon {
+	color: white; 
+	font-family: $body-font;
+	text-align: center;
+	margin-top: 5em;
+}
+.icon img {
+	width: 100px;
+	height: 100px;
+}
+.icon p {
+	margin-top: 1.5em;
+  font-size: 1em;
+  width: 150px;
+  line-height: 20px;
 }
