@@ -3,13 +3,16 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :messages, only: [:index, :show, :new, :create]
   resources :fields, only: [] do
-    resources :articles, only: [:index, :show]
+   # resources :articles, only: [:index, :show]
     resources :typologies, only: [:index, :show] do
       resources :indicators, only: [:index]
     end
   end
-  get '/dashboard', to: 'dashboard#activity', as: :dashboard
-  get '/benchmark', to: 'benchmarks#benchmark'
+
+  resources :articles, only: [:index, :show]
+  get '/dashboard', to: 'dashboards#activity', as: :dashboard
+  get '/bookmarks', to: 'dashboards#bookmarks', as: :bookmarks
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 

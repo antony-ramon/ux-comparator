@@ -1,0 +1,34 @@
+<div class="container m-5">
+<h2> <%= @user.first_name %>, those are the results and articles you bookmarked</h2>
+<h5><em>Click on any item to access more details and find new ways to improve your UX </em> 😎 </h5>
+  <div class="d-flex m-5">
+    <div class="div w-50 m-2">
+
+    <div class="card-typology">
+      <div>Telecom</div>
+      <div class="card-typology-infos">
+        <h2>Product name</h2>
+        <p>Product description with <strong>relevant info</strong> only.</p>
+      </div>
+    </div>
+
+      <% @typologies.each_with_index do |typology, index| %>
+        <% if (index.to_i ==0 || @typologies[index.to_i].field.name != @typologies[index.to_i - 1].field.name) %>
+          <h4><%= typology.field.name %></h4>
+          <h3><%= index.to_i %></h3>
+        <% end %>
+        <ul>
+          <li><%= typology.process_name %></li>
+          <ul>
+            <li><%= typology.title %></li>
+          </ul>
+        </ul>
+      <% end %>
+    </div>
+    <div class="div w-50 m-2">
+      <% @articles.each do |article, index| %>
+        <%= article.title %>
+      <% end %>
+    </div>
+  </div>
+</div>

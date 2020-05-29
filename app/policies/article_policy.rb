@@ -6,8 +6,15 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   # On met ici les memes methodes que dans le controller, qui renvoient tts un booleen
+  def create?
+  	user.admin
+  end
 
-	  def create?
-	  	user.admin
-	  end
+  def index?
+  	true
+  end
+
+  def show?
+  	true
+  end
 end

@@ -1,0 +1,30 @@
+	<div class="container">
+		<h1>What's new?</h1>
+		<div class="filter">
+			<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
+		<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
+		-->
+			<%= f.input :field, collection: Field.all.pluck(:name) %>
+			<%= f.submit %>
+			<% end %>
+		</div>
+
+		<div class="articles row">
+			<% @articles.each do |article| %>
+				<div class="col-4">
+					<%= link_to article_path(article), class: "" do %>
+						<div class="card_article">
+							<div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
+								<p class="title"><%= article.title %></p>
+							</div>
+							<div class="card_icons">
+								<%= image_tag "bookmark.png", alt: "bookmark" %>
+								<%= image_tag "share.png", alt: "bookmark" %>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+ 
