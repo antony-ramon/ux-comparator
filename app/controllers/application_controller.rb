@@ -14,9 +14,6 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
-@field = Field.find(params[:field_id])
-@typologies = @field.typologies.where(process_name: params[:process])
-
   private
 
   def skip_pundit?
