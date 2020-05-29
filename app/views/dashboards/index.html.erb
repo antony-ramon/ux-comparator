@@ -1,0 +1,79 @@
+
+<div class=container>
+	<h3>Your favorite topics</h3>
+
+	<h2>Fields</h3>
+
+	<h2>Typologies</h3>
+
+	<h3>Last news</h3>
+	<div class="col-8">
+				<div class="articles row">
+					<% @articles.each do |article| %>
+						<div class="col-4">
+							<%= link_to "#", class: "" do %>
+								<div class="card_article">
+									<% if article.photo.attached? %>
+										<%= cl_image_tag article.photo.key, crop: :fill%>
+									<% else %>
+									<%= image_tag "filler_picture.jpg", alt: "alttext" %>
+								<% end %>
+								<div class="text-center">
+									<p id="title"><%= article.title %></p>
+									</div>
+								</div>
+							<% end %>
+							</div>
+						<% end %>
+				</div>
+	</div>
+
+	<div class="rating">
+		<h3>Top rating</h3>
+
+		<ul>
+		<% @companies.each do |company| %>
+			<div>
+			<li>
+			<%= company.name %>
+
+			<% if company.rating == 5 %>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			<% end %>
+
+			<% if company.rating == 4 %>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			<% end %>
+
+			<% if company.rating == 3 %>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			<% end %>
+
+			<% if company.rating == 2 %>
+				<span>&#9733;</span>
+				<span>&#9733;</span>
+			<% end %>
+
+
+			<% if company.rating == 1 %>
+				<span>&#9733;</span>
+			<% end %>
+
+			<%= "#{company.rating} /5" %>
+
+			</li>
+			</div>
+		<% end %>
+		</ul>
+	</div>
+
+</div>
