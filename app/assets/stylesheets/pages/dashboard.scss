@@ -1,9 +1,13 @@
 #rating {
   overflow: hidden;
-  height: 100%;
-  width: 1220px ;
+  height: 100vh;
   background: $picotee_blue;
   display: flex;
   align-items: center;
   color: white;
+  width: 60%;
+}
+
+.info-container {
+  display: flex;
 }

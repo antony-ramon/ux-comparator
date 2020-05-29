@@ -1,19 +1,14 @@
-
-<div>
-  <div class="info-container d-flex bd-highlight">
-
-	<div class="p-2 bd-highlight d-flex flex-column" id="rating">
-		<div>
+<div class="info-container bd-highlight">
+	<div class="p-4 bd-highlight flex-column" id="rating">
+    <div>
 		  <h3>Top rating</h3>
-        </div>
-
-        <div>
+    </div>
+    <div>
 			<ul>
 			<% @companies.each do |company| %>
-				<div>
+			<div>
 				<li>
 				<%= company.name %>
-
 				<% if company.rating == 5 %>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
@@ -21,65 +16,52 @@
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 				<% end %>
-
 				<% if company.rating == 4 %>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 				<% end %>
-
 				<% if company.rating == 3 %>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 				<% end %>
-
 				<% if company.rating == 2 %>
 					<span>&#9733;</span>
 					<span>&#9733;</span>
 				<% end %>
-
-
 				<% if company.rating == 1 %>
 					<span>&#9733;</span>
 				<% end %>
-
 				<%= "#{company.rating} /5" %>
-
 				</li>
 				</div>
 			<% end %>
 			</ul>
 		</div>
 	</div>
-
-    <div class="p-2 flex-grow-1 bd-highlight">
-
-		<h3>Last news</h3>
-		<div class="col-8">
-
-		<div class="articles row">
-			<% @articles.each do |article| %>
-				<div class="col-6">
+  <div class="p-4 flex-grow-1 bd-highlight">
+    <h3>Benchmark list</h3>
+    <p>Accéder à votre benchmark sur les opérateurs téléphones</p>
+    <%= link_to "voir", field_typologies_path(Typology.first) %>
+    <h3>Last news</h3>
+    <div class="perso-cards__container">
+      <% @articles.each do |article| %>
+		    <div class="articles">
 					<%= link_to article_path(article), class: "" do %>
 					<div class="card_article">
 						<div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
 							<p class="title"><%= article.title %></p>
 						</div>
-
 						<div class="card_icons">
-						<%= image_tag "share.png", alt: "bookmark" %>
+						<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
 						</div>
 					</div>
-			        <% end %>
-				</div>
-			<% end %>
-		</div>
+			   <% end %>
+  		  </div>
 
-		</div>
+      <% end %>
     </div>
-
-
-  </div>
+	</div>
 </div>

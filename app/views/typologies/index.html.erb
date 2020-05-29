@@ -1,13 +1,66 @@
-<h1>coucou</h1>
+<!-- <h1>coucou</h1>
 
 
-<% @typologies.each do |typology| %>
-  <% typology.companies.each do |company| %>
-<div><div class="item_bench"><%= company.name %></div>
- <div class="item_bench"><%= typology.title %></div>
+<#% @typologies.each do |typology| %>
+  <#% typology.companies.each do |company| %>
+<div><div class="item_bench"><#%= company.name %></div>
+ <div class="item_bench"><#%= typology.title %></div>
  </div>
-<% end %>
-<% end %>
+<#% end %>
+<#% end %>
 
-
+ -->
+<div class="table-benchmark">
+  <div class="p-5 text-center">
+    <h3 class="mt-3 mb-5">Voici le resultat UX des opérateurs téléphoniques</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col" style="color:red"><em>Process: Subscription<em></th>
+          <th scope="col"><%= image_tag ("sfr.png"), :class => "img_company_logo" %></th>
+          <th scope="col"><%= image_tag ("free.png"), :class => "img_company_logo" %></th>
+          <th scope="col"><%= image_tag ("orange.png"), :class => "img_company_logo" %></th>
+          <th scope="col"><%= image_tag ("bg.png"), :class => "img_company_logo" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Time to suscribe online</th>
+          <td>10 minutes</td>
+          <td>6 minutes</td>
+          <td>12 minutes</td>
+          <td>8 minutes</td>
+        </tr>
+        <tr>
+          <th scope="row">Number of pages</th>
+          <td>16 pages</td>
+          <td>13 pages</td>
+          <td>13 pages</td>
+          <td>20 pages</td>
+        </tr>
+        <tr>
+          <th scope="row">Number of clicks</th>
+          <td>55 clicks</td>
+          <td>60 clicks</td>
+          <td>45 clicks</td>
+          <td>52 clicks</td>
+        </tr>
+        <tr>
+          <th scope="row">Delay before getting all services up</th>
+          <td>6 days</td>
+          <td>10 days</td>
+          <td>4 days</td>
+          <td>3 days</td>
+        </tr>
+        <tr>
+          <th scope="row">Number of emails / SMS received</th>
+          <td>3 emails, 1 SMS</td>
+          <td>10 emails</td>
+          <td>5 emails</td>
+          <td>4 emails, 2 SMS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
