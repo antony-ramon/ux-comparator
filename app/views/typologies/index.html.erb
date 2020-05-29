@@ -1,9 +1,11 @@
 <h1>coucou</h1>
 
+
 <% @typologies.each do |typology| %>
   <% typology.companies.each do |company| %>
-<div class="item_bench"><%= company.name %></div>
+<div><div class="item_bench"><%= company.name %></div>
  <div class="item_bench"><%= typology.title %></div>
+ </div>
 <% end %>
 <% end %>
 
