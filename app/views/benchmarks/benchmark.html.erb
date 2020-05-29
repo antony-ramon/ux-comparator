@@ -1,0 +1,10 @@
+<h1>coucou</h1>
+<h1>Benchmark</h1>
+
+<% @typologies.each do |typology| %>
+  <% typology.companies.each do |company| %>
+<div class = "container"><%= company.name %></div>
+ <div><%= typology.title %></div>
+<% end %>
+<% end %>
+

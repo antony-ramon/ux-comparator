@@ -1,0 +1,9 @@
+<h1>Benchmark</h1>
+
+<% @typologies.each do |typology| %>
+<ul>
+<li><p><%= typology.company.name %> - <%= typology.indicator.content %>
+<%= typology.title %></p></li>
+</ul>
+<% end %>
+
