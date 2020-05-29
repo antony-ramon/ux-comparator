@@ -9,8 +9,13 @@ Rails.application.routes.draw do
     end
   end
   resources :articles, only: [:index, :show]
+<<<<<<< HEAD
   get '/dashboard', to: 'dashboards#index', as: :dashboard
 
+=======
+  get '/dashboard', to: 'dashboards#activity', as: :dashboard
+  get '/bookmarks', to: 'dashboards#bookmarks', as: :bookmarks
+>>>>>>> master
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
 
