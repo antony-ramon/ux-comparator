@@ -17,4 +17,8 @@ class ArticlePolicy < ApplicationPolicy
   def show?
   	true
   end
+
+  def like?
+    true
+  end
 end

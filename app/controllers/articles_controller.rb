@@ -10,4 +10,17 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		authorize @article
 	end
+
+	def like
+	  @article = Article.find(params[:id])
+	  authorize @article
+	  @article.liked_by current_user
+	  redirect_to articles_path
+	end
+
+	def unlike
+	  @article = Article.find(params[:id])
+	  @article.unliked_by current_user
+	end
+
 end
