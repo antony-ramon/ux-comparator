@@ -1,33 +1,57 @@
-
-<div class="container">
-		<h1>What's new?</h1>
-		<div class="filter">
-			<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
-		<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
-		-->
+<h1>What's new?</h1>
+<div class="container-article">
+	<div class="filter">
+		<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
+			<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
+			-->
 			<%= f.input :field, collection: Field.all.pluck(:name) %>
 			<%= f.submit %>
-			<% end %>
-		</div>
-		<div class="articles row">
-			<% @articles.each do |article| %>
-				<div class="col-4">
+		<% end %>
+	</div>
+
+<div class="row">
+	<% first_article = @articles.first %>
+	<div class="col-12">
+		<%= link_to article_path(first_article), class: "" do %>
+			<div class="card_article" id="first_article">
+				<% if first_article.photo.attached? %>
+					<%= cl_image_tag first_article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
+				<% else %>
+					<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
+				<% end %>
+				<p class="title"><%= first_article.title %></p>
+				<p class="author">By <%= first_article.author %></p>
+				<div class="card_icons">
+					<%= image_tag "bookmark.png", alt: "bookmark" %>
+					<%= image_tag "share.png", alt: "bookmark" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+	<div class="row">
+		<% @articles.drop(1).each do |article| %>
+			<div class="col-4">
 					<%= link_to article_path(article), class: "" do %>
 						<div class="card_article">
-							<div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
-								<p class="title"><%= article.title %></p>
-								<%= link_to like_article_path(article), method: :put do %>
-								  Like
-								<% end %>
-
-							</div>
+							<% if article.photo.attached? %>
+								<%= cl_image_tag article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
+							<% else %>
+								<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
+							<% end %>
+							<p class="title"><%= article.title %></p>
+							<p class="author">By <%= article.author %></p>
 							<div class="card_icons">
 								<%= image_tag "bookmark.png", alt: "bookmark" %>
 								<%= image_tag "share.png", alt: "bookmark" %>
+                <%= link_to like_article_path(article), method: :put do %>
+								  Like
+								<% end %>
 							</div>
 						</div>
 					<% end %>
-				</div>
+					</div>
 			<% end %>
-		</div>
 	</div>
+</div>

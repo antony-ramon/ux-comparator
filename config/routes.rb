@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :typologies, only: [:index, :show]
   end
   # fields/:field_id/typologies?process=facturation
-  resources :articles, only: [:index, :show] do
+  resources :articles, only: [:index, :show, :update, :edit] do
     member do
       put "like" => "articles#like"
       put "unlike" => "articles#unlike"

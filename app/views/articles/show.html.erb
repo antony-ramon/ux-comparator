@@ -1,11 +1,20 @@
-<div class="container">
- <div class="d-flex row">
-  	<div id="picture" class="col-8">
-  	  <% if @article.photo.attached? %>
-          <%= cl_image_tag @article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
-        <% else %>
-          <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
-      <% end %>
-  	</div>
-  </div>
+<div class="article_picture">
+	<% if @article.photo.attached? %>
+		<%= cl_image_tag @article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
+	<% else %>
+    <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
+	<% end %>
 </div>
+
+<div class="content-container">
+	<h3><%= @article.title %></h3>
+	<div class="author">
+		<p class="author">By <%= @article.author %></p>
+	</div>
+	<div class="art_content">
+			<p><%= @article.content %></p>
+	</div>
+</div>
+
+<%= link_to 'Edit this article', edit_article_path, class: "buttons" %>
+<%= link_to 'See other articles', articles_path, class: "buttons" %>
