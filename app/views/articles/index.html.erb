@@ -43,11 +43,12 @@
 							<p class="title"><%= article.title %></p>
 							<p class="author">By <%= article.author %></p>
 							<div class="card_icons">
-								<%= image_tag "bookmark.png", alt: "bookmark" %>
-								<%= image_tag "share.png", alt: "bookmark" %>
-                <%= link_to like_article_path(article), method: :put do %>
-								  Like
-								<% end %>
+							  <%= image_tag "share.png", alt: "bookmark" %>
+                			  <%= link_to like_article_path(article), method: :put do %>
+							    <%= image_tag "bookmark.png", alt: "bookmark" %>
+								<div><%= flash[:success] %></div>
+								<%= yield %>
+						      <% end %>
 							</div>
 						</div>
 					<% end %>
