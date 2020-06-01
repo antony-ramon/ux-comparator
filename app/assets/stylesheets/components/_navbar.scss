@@ -35,15 +35,42 @@
   	color: #fff;
   	}
 }
-
-//This CSS is for the LOGGED navbar
+.navbar-benchmark {
+	font-size: .8em;
+}
+#launch-benchmark {
+	color: $picotee-blue;
+		&:hover {
+			background-color: $picotee-blue;
+			color: white;
+		}
+}
+label {
+	font-size: .8em;
+}
+// NAVBAR EXPLORE MENU
+.navbar-toggler span {
+	font-size: .8em;
+	color: white;
+}
+.explore_icons {
+	font-size: 1.2em;
+	margin: 20px;
+	a {
+		text-decoration: none;
+		flex-align: column;
+		justify-content: center;
+		align-items: center;
+		color: $picotee_blue;
+		padding: 1.3em;
+		&:hover {
+			color: #090920;
+		}
+	}
+}
+//LOGGED NAVBAR
 .logged {
 	background-color: $picotee_blue;
-	// position: absolute;
-	// width: 100%;
-	// height: 150px;
-	// left: 360px;
-	// top: 0px;
 }
 
 .text-navbar{

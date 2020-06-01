@@ -1,36 +1,52 @@
 <% @field_names = Field.pluck(:name) %>
 <% @process_names = Typology.pluck(:process_name).uniq %>
 
-<div class="navbar logged">
+<div class="navbar logged pos-f-t">
 	<%= link_to "#", class: "navbar-brand" do %>
 		<%= image_tag "logo_white.png" %>
 	<% end %>
-  <div>
-    <form action="/typologies" method="get">
-      <div class="form-row align-items-center px-4 pb-4 text-navbar">
-        <div class="col-auto">
-          <label for="field_name">Field</label>
-          <select name="field_name" class="form-control">
-            <% @field_names.each do |field_name| %>
-              <option><%= field_name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="form-row align-items-center px-4">
-          <label for="process_name">Process</label>
-          <select name="process_name" class="form-control">
-            <% @process_names.each do |process_name| %>
-              <option><%= process_name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-2 align-bottom">Launch benchmark!</button>
-        </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span>Explore</span>
+  </button>
+
+  <form action="/typologies" method="get">
+    <div class="form-row align-items-center px-4 pb-4 text-navbar">
+      <div class="col-auto">
+        <label for="field_name">Field</label>
+        <select name="field_name" class="form-control navbar-benchmark">
+          <% @field_names.each do |field_name| %>
+            <option><%= field_name %></option>
+          <% end %>
+        </select>
       </div>
-    </form>
+      <div class="form-row align-items-center px-4">
+        <label for="process_name">Process</label>
+        <select name="process_name" class="form-control navbar-benchmark">
+          <% @process_names.each do |process_name| %>
+            <option><%= process_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-2 align-bottom buttons" id="launch-benchmark">Launch benchmark!</button>
+      </div>
+    </div>
+  </form>
+  <div class="navbar-buttons">
+  	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
-	<div class="navbar-buttons">
-		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
-	</div>
+</div>
+
+<div class="collapse w-100" id="navbarToggleExternalContent">
+  <div class="d-flex">
+    <div class="explore_icons">
+      <%= link_to "<i class='fas fa-home'></i> Home".html_safe, root_path %>
+    </div>
+    <div class="explore_icons">
+      <%= link_to "<i class='fas fa-columns'></i> Dashboard".html_safe, dashboard_path %>
+    </div>
+    <div class="explore_icons">
+      <%= link_to "<i class='fas fa-search'></i> Latest news".html_safe, articles_path %>
+    </div>
+  </div>
 </div>
