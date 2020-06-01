@@ -7,4 +7,22 @@ class TypologiesController < ApplicationController
     # @process_name = "Subscription"
     @typologies = policy_scope(Typology).where(process_name: @process_name)
   end
+
+  def like
+    @typology = Typology.find(params[:id])
+    authorize @typology
+    @typology.liked_by current_user
+    # respond_to do |format|
+    #   # format.html {redirect_to :back }
+    #   format.json { render json: { count: @typology.liked_by } }
+    #      render :layout => false  # format.js
+    # end
+    redirect_to typologies_path
+  end
+
+  def unlike
+    @typology = Typology.find(params[:id])
+    authorize @typology
+    @typology.unliked_by current_user
+  end
 end
