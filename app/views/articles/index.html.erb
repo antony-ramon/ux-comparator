@@ -1,56 +1,46 @@
 <div class="container">
 <h1>What's new?</h1>
-	<div class="filter">
-		<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
-			<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
-			-->
-			<%= f.input :field, collection: Field.all.pluck(:name) %>
-			<%= f.submit %>
-		<% end %>
+	<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
+		<div class="row">
+				<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
+				-->
+			<div class="col-4">
+				<%= f.input :field, collection: Field.all.pluck(:name), label: false, prompt: "Select your field" %>
+			</div>
+			<div class="col-4">
+				<%= f.submit "Filter", class:"buttons" %>
+			</div>
 	</div>
+<% end %>
 
-<div class="row">
-	<% first_article = @articles.first %>
-	<div class="col-12">
-		<%= link_to article_path(first_article), class: "first_article" do %>
-			<div class="card_article" id="first_article">
-				<% if first_article.photo.attached? %>
-					<%= cl_image_tag first_article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
-				<% else %>
-					<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
-				<% end %>
-				<p class="title"><%= first_article.title %></p>
-				<p class="author">By <%= first_article.author %></p>
-				<div class="card_icons">
-					<%= image_tag "bookmark.png", alt: "bookmark" %>
-					<%= image_tag "share.png", alt: "bookmark" %>
-				</div>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+  	<div class="carousel-item active">
+  		<%= render 'article-card', article: Article.first %>
+  	</div>
+    <% @articles.last(3).each do |article| %>
+    	<div class="carousel-item">
+					<%= render 'article-card', article: article %>
 			</div>
 		<% end %>
-	</div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
 	<div class="row">
 		<% @articles.drop(1).each do |article| %>
-			<div class="col-4">
-					<%= link_to article_path(article), class: "" do %>
-						<div class="card_article">
-							<% if article.photo.attached? %>
-								<%= cl_image_tag article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
-							<% else %>
-								<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
-							<% end %>
-							<p class="title"><%= article.title %></p>
-							<p class="author">By <%= article.author %></p>
-							<div class="card_icons">
-							  <%= image_tag "share.png", alt: "bookmark" %>
-                			  <%= link_to like_article_path(article), method: :put do %>
-							    <%= image_tag "bookmark.png", alt: "bookmark" %>
-						      <% end %>
-							</div>
-						</div>
-					<% end %>
-					</div>
+			<div class="col-6">
+					<%= render 'article-card', article: article %>
+			</div>
 			<% end %>
 	</div>
 </div>
+
+<%= javascript_pack_tag 'articles.js' %>
