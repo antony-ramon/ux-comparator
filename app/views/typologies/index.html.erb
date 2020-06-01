@@ -30,6 +30,30 @@
   <% end %>
 <% end %>
 
+<% @typology = @typologies.first %>
+
+<% @liked_by_user = 0 %>
+<% @typology.get_likes.each do |like| %>
+  <% @liked_by_user = 1 if like.voter_id == current_user.id %>
+<% end %>
+<p><%= @liked_by_user > 0 ? "UNLIKE" : "LIKE" %></p>
+<div id="counter_likes">
+<p><%= @liked_by_user %>
+</p>
+
+<div>
+<i class="fas fa-bookmark"></i> Benchmark already in your favorites<br>
+
+<%= link_to unlike_typology_path(@typology), remote: true, method: :put do %>
+( <i class="far fa-trash-alt"></i> remove from favorites)
+<% end %>
+
+</div>
+<div>
+<i class="fas fa-plus-circle"></i> Add this benchmark to your favorites!
+</div>
+
+<!-- redirect_to request.referrer, notice: "The article has been added to your favorites" -->
 
 <div class="table-benchmark">
   <div class="p-5 text-center">
@@ -37,7 +61,15 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col" style="color:red"><em>Process: <%= @process_name %><em></th>
+          <th scope="col" style="color:red">
+            <div class="card_icons">
+              <%= image_tag "bookmark.png", alt: "bookmark" %>
+              <%= image_tag "share.png", alt: "bookmark" %>
+              <%= link_to like_typology_path(@typology), method: :put do %>
+                Like
+              <% end %>
+            </div>
+          </th>
           <th scope="col"><%= image_tag ("sfr.png"), :class => "img_company_logo" %></th>
           <th scope="col"><%= image_tag ("free.png"), :class => "img_company_logo" %></th>
           <th scope="col"><%= image_tag ("orange.png"), :class => "img_company_logo" %></th>
