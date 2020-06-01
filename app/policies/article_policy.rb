@@ -18,6 +18,10 @@ class ArticlePolicy < ApplicationPolicy
   	true
   end
 
+  def like?
+    true
+  end
+  
   def edit?
     true
   end

@@ -45,6 +45,9 @@
 							<div class="card_icons">
 								<%= image_tag "bookmark.png", alt: "bookmark" %>
 								<%= image_tag "share.png", alt: "bookmark" %>
+                <%= link_to like_article_path(article), method: :put do %>
+								  Like
+								<% end %>
 							</div>
 						</div>
 					<% end %>
