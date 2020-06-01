@@ -46,8 +46,8 @@
     <h3>Benchmark list</h3>
     <p>Accéder à votre benchmark sur les opérateurs téléphones</p>
 
-
-    <h3>Favorites articles</h3>
+    <%# <i class="fas fa-bookmark"></i> %>
+    <h3 class="fas fa-bookmark">Favorites articles</h3>
     <%= link_to "Add your favorites articles", articles_path %>
 
 	<% current_user.find_liked_items.each do |article| %>
@@ -60,7 +60,7 @@
 				<div class="card_icons">
 				<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
 				<%= link_to unlike_article_path(article), method: :put do %>
-				<%= image_tag "bookmark.png", alt: "bookmark" %>
+				<i class="fas fa-trash-alt"></i> Remove from your favorites
 				<% end %>
 			    </div>
 			</div>
