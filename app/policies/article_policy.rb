@@ -21,7 +21,11 @@ class ArticlePolicy < ApplicationPolicy
   def like?
     true
   end
-  
+
+  def unlike?
+    true
+  end
+
   def edit?
     true
   end
