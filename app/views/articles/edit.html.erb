@@ -1,0 +1,14 @@
+<div class="d-flex container justify-content-center">
+  <h3>Edit article</h3>
+</div>
+
+<div class="container justify-content-center">
+  <%= simple_form_for [ @article ] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :publication_date %>
+    <%= f.input :content %>
+    <%= f.input :photo %>
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+  <% end %>
+</div>
