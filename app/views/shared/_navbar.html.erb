@@ -1,7 +1,35 @@
+<% @field_names = Field.pluck(:name) %>
+<% @process_names = Typology.pluck(:process_name).uniq %>
+
 <div class="navbar logged">
 	<%= link_to "#", class: "navbar-brand" do %>
 		<%= image_tag "logo_white.png" %>
 	<% end %>
+  <div>
+    <form action="/typologies" method="get">
+      <div class="form-row align-items-center px-4 pb-4 text-navbar">
+        <div class="col-auto">
+          <label for="field_name">Field</label>
+          <select name="field_name" class="form-control">
+            <% @field_names.each do |field_name| %>
+              <option><%= field_name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-row align-items-center px-4">
+          <label for="process_name">Process</label>
+          <select name="process_name" class="form-control">
+            <% @process_names.each do |process_name| %>
+              <option><%= process_name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2 align-bottom">Launch benchmark!</button>
+        </div>
+      </div>
+    </form>
+  </div>
 	<div class="navbar-buttons">
 		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
 	</div>

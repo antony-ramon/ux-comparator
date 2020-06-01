@@ -10,13 +10,34 @@
 <#% end %>
 
  -->
+
+<% if params[:field_name].nil? || params[:process_name].nil? %>
+<p>Coucou</p>
+<% else %>
+
+<% @field = Field.find_by(name: params[:field_name]) %>
+<% @process_name = params[:process_name] %>
+<% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
+<% @companies = Company.where(field: @field) %>
+<% @companies.each do |company| %>
+<li><%= company.name %></li>
+<% end %>
+
+<% @companies.each do |company| %>
+  <% @typologies.each do |typology| %>
+    <% @indicator = Indicator.find_by(company: company, typology: typology) %>
+    <li><%= @indicator.content %></li>
+  <% end %>
+<% end %>
+
+
 <div class="table-benchmark">
   <div class="p-5 text-center">
-    <h3 class="mt-3 mb-5">Voici le resultat UX des opérateurs téléphoniques</h3>
+    <h3 class="mt-3 mb-5">Here is the benchmark of the <%= params[:field_name].downcase %>'s UX on the <%= @process_name.downcase %> process </h3>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col" style="color:red"><em>Process: Subscription<em></th>
+          <th scope="col" style="color:red"><em>Process: <%= @process_name %><em></th>
           <th scope="col"><%= image_tag ("sfr.png"), :class => "img_company_logo" %></th>
           <th scope="col"><%= image_tag ("free.png"), :class => "img_company_logo" %></th>
           <th scope="col"><%= image_tag ("orange.png"), :class => "img_company_logo" %></th>
@@ -64,3 +85,5 @@
   </div>
 </div>
 
+
+<% end %>

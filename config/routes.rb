@@ -2,10 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :messages, only: [:index, :show, :new, :create]
-  resources :fields, only: [:index] do
    # resources :articles, only: [:index, :show]
-    resources :typologies, only: [:index, :show]
-  end
+  resources :typologies, only: [:index]
   # fields/:field_id/typologies?process=facturation
   resources :articles, only: [:index, :show, :update, :edit] do
     member do
