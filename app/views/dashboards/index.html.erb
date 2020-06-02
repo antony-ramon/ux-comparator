@@ -62,8 +62,10 @@
 
   <div class="p-4 flex-grow-1 bd-highlight">
 
-    <h3>Benchmark list</h3>
-    <p>Accéder à votre benchmark sur les opérateurs téléphones</p>
+    <div class="d-flex flex-row align-items-middle">
+      <div class="d-inline"><i class="fas fa-compress-alt p-2"></i></div>
+      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
+    </div>
 
 	 <form action="/typologies" method="get">
     <div class="form-row align-items-end px-4 pb-4 text-navbar">
@@ -91,10 +93,13 @@
 
 
 
-
-    <h3 class="fas fa-bookmark">Favorites articles</h3>
+  <div class="d-flex flex-row align-items-middle">
+    <div class="d-inline"><i class="fas fa-bookmark p-2"></i></div>
+    <div class="d-inline"><h3>Favorites articles</h3></div>
+  </div>
 
 	<% current_user.find_liked_items.each do |article| %>
+  <% if article.class == Article %>
 		<div class="articles">
 	      <%= link_to article_path(article), class: "" do %>
 			<div class="card_article">
@@ -105,17 +110,20 @@
 				<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
 
 				<%= link_to unlike_article_path(article), method: :put do %>
-				<i class="fas fa-trash-alt"></i> Remove from your favorites
+				<i class="fas fa-trash-alt"></i> Remove from favorites
 				<% end %>
 			    </div>
 			</div>
 		  <% end %>
         </div>
     <% end %>
+    <% end %>
 
-
-    <h3>Last news</h3>
-	<%= link_to "See more articles", articles_path %>
+    <div class="d-flex flex-row align-items-center">
+      <div class="d-inline"><i class="fas fa-book-open"></i></div>
+      <div class="d-inline p-2"><h3>Latest news</h3></div>
+      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
+    </div>
     <div class="perso-cards__container">
       <% @articles.each do |article| %>
 		    <div class="articles">
@@ -129,11 +137,11 @@
 
 							<% if current_user.find_liked_items.include?(article) %>
 					    		<%= link_to unlike_article_path(article), method: :put do %>
-				         			<i class="fas fa-trash-alt"></i> Remove from your favorites
+				         			<i class="fas fa-trash-alt"></i> Remove from favorites
 					    		<% end %>
 							<% else %>
                        			<%= link_to like_article_path(article), method: :put do %>
-									<i class="far fa-bookmark"></i> Add in your favorites
+									<i class="far fa-bookmark"></i> Add to favorites
 				       			<% end %>
 							<% end %>
 
