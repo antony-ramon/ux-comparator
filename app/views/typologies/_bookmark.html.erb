@@ -1,0 +1,20 @@
+<% typology = typologies.first %>
+<% liked_by_user = 0 %>
+<% typology.get_likes.each do |like| %>
+  <% liked_by_user = 1 if like.voter_id == current_user.id %>
+<% end %>
+
+<% if liked_by_user > 0 %>
+  <div class="container">
+    <i class="fas fa-bookmark"></i> Benchmark in your favorites<br>
+    <%= link_to unlike_typology_path(typology), remote: true, class: "text-muted font-weight-light", method: :put do %>
+      ( <i class="far fa-trash-alt"></i> remove)
+    <% end %>
+  </div>
+<% else %>
+  <div class="container">
+    <%= link_to like_typology_path(typology), remote: true, class: "text-danger", method: :put do %>
+      <i class="fas fa-plus-circle text-danger"></i> Add this benchmark to your favorites!
+    <% end %>
+  </div>
+<% end %>

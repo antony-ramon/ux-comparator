@@ -2,12 +2,17 @@
 <% @process_names = Typology.pluck(:process_name).uniq %>
 
 <div class="navbar logged pos-f-t">
-	<%= link_to "#", class: "navbar-brand" do %>
+	<%= link_to root_path, class: "navbar-brand" do %>
 		<%= image_tag "logo_white.png" %>
 	<% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span>Explore</span>
-  </button>
+  <div class="d-flex justify-content-around">
+    <div class="explore_icons">
+      <%= link_to "<i class='fas fa-columns'></i> My dashboard".html_safe, dashboard_path %>
+    </div>
+    <div class="explore_icons">
+      <%= link_to "<i class='fas fa-search'></i> Latest news".html_safe, articles_path %>
+    </div>
+  </div>
 
   <form action="/typologies" method="get">
     <div class="form-row align-items-end px-4 pb-4 text-navbar">
@@ -28,25 +33,15 @@
         </select>
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary align-bottom buttons" id="launch-benchmark">Launch benchmark!</button>
+        <button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark">See benchmark!</button>
       </div>
     </div>
   </form>
   <div class="navbar-buttons">
   	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
+
 </div>
 
-<div class="collapse w-100" id="navbarToggleExternalContent">
-  <div class="d-flex">
-    <div class="explore_icons">
-      <%= link_to "<i class='fas fa-home'></i> Home".html_safe, root_path %>
-    </div>
-    <div class="explore_icons">
-      <%= link_to "<i class='fas fa-columns'></i> Dashboard".html_safe, dashboard_path %>
-    </div>
-    <div class="explore_icons">
-      <%= link_to "<i class='fas fa-search'></i> Latest news".html_safe, articles_path %>
-    </div>
-  </div>
-</div>
+
+
