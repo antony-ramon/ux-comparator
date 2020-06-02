@@ -1,11 +1,13 @@
-.container-article {
-  margin: 20px;
-}
 .card_article {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     overflow: hidden;
     background-color: white;
+}
+#first_article {
+  margin-right: 100px;
+  margin-left: 100px;
+  font-size: 1.2em;
 }
 a.article_link {
     display: block;
@@ -41,7 +43,13 @@ a.article_link {
 }
 .author {
   margin-top: 0;
-  font-size: 0.8em;
-  color: white;
-  font-weight: 100;
+  font-size: 0.8em; // Camille
+  color: white; // Camille
+  font-weight: 100; // Camille
+}
+  // font-size: .8em; // Lucille
+  // color: $picotee-blue; // Lucille
+// }
+.card-content {
+  height: 150px; // Lucille
 }
