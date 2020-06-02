@@ -5,8 +5,9 @@
   display: flex;
   align-items: center;
   color: white;
-  width: 40%;
+  width: 30%;
   padding: initial;
+  font-size: 85%;
 }
 
 .info-container {
@@ -17,6 +18,19 @@
   color: $picotee_blue;
   }
 
+  .info-container h4 {
+  color: white;
+  }
+
+  .info-container ul {
+  padding: 0px;
+  }
+
 .fas {
 color: $picotee_blue;
+}
+
+#launch-benchmark-dashboard {
+  color: white;
+  background-color: $picotee_blue;
 }
