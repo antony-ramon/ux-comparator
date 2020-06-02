@@ -12,7 +12,10 @@
  -->
 
 <%if params[:field_name].nil? || params[:process_name].nil? %>
-  <p>Coucou</p>
+  <div class="text-center m-4 p-4">
+    <h3>Get started!</h3>
+    <h4>Create your first benchmark by filling the two fileds of the form above ☝️</h4>
+  </div>
 <% else %>
 
   <% @field = Field.find_by(name: params[:field_name]) %>
@@ -20,26 +23,26 @@
   <% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
   <% @companies = Company.where(field: @field) %>
 
-<div class="container p-5">
-  <table class="table table-striped text-center">
-      <tr>
-        <th>
-          <div id="bookmark">
-            <%= render 'bookmark', typologies: @typologies %>
-          </div>
-        </th>
-        <% @companies.each do |company| %>
-          <th><%= company.name %></th>
-        <% end %>
-      </tr>
-      <% @typologies.each do |typology| %>
+  <div class="container p-5">
+    <table class="table table-striped text-center align-middle benchmark-table">
         <tr>
-          <th><%= typology.title %></th>
-            <% @companies.each do |company| %>
-            <td><%= Indicator.find_by(typology: typology, company: company).content %></td>
+          <th class="align-middle">
+            <div id="bookmark">
+              <%= render 'bookmark', typologies: @typologies %>
+            </div>
+          </th>
+          <% @companies.each do |company| %>
+            <th class="align-middle"><%= company.name %></th>
           <% end %>
         </tr>
-      <% end %>
-  </table>
-</div>
+        <% @typologies.each do |typology| %>
+          <tr>
+            <th class="align-middle"><%= typology.title %></th>
+              <% @companies.each do |company| %>
+              <td class="align-middle"><%= Indicator.find_by(typology: typology, company: company).content %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
+  </div>
 <% end %>
