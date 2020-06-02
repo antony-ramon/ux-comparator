@@ -5,9 +5,18 @@
   display: flex;
   align-items: center;
   color: white;
-  width: 60%;
+  width: 40%;
+  padding: initial;
 }
 
 .info-container {
   display: flex;
+}
+
+.info-container h3 {
+  color: $picotee_blue;
+  }
+
+.fas {
+color: $picotee_blue;
 }

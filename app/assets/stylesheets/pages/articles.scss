@@ -6,6 +6,7 @@ h1 {
   font-family: $headers-font;
   color: $picotee-blue;
 }
+
 // .article_picture {
 //   img {
 //     style: background-image;
@@ -18,6 +19,20 @@ h1 {
 // 	margin: 200px;
 // 	margin-top: 100px;
 // }
+
+.article_picture {
+  img {
+ // style: background-image; // added by Lucille, removed by Camille
+    width:80%;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+.content-container {
+	margin: 250px; // Lucille had put 200px
+	margin-top: 100px;
+}
+
 .author {
 	font-size: 1em;
 }
