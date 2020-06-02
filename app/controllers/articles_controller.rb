@@ -15,14 +15,14 @@ class ArticlesController < ApplicationController
 	  @article = Article.find(params[:id])
 	  authorize @article
 	  @article.liked_by current_user
-	  redirect_to request.referrer, notice: "The article has been added to your favorites"
+	  redirect_back fallback_location: articles_path, notice: "The article has been added to your favorites"
 	end
 
 	def unlike
 	  @article = Article.find(params[:id])
 	  authorize @article
 	  @article.unliked_by current_user
-	  redirect_to request.referrer, notice: "The article has been removed from your favorites"
+	  redirect_back fallback_location: articles_path, notice: "The article has been removed from your favorites"
 	end
 
 	def edit

@@ -1,54 +1,98 @@
+<% @field_names = Field.pluck(:name) %>
+<% @process_names = Typology.pluck(:process_name).uniq %>
+
 <div class="info-container bd-highlight">
 	<div class="p-4 bd-highlight flex-column" id="rating">
-    <div>
-		  <h3>Top rating</h3>
-    </div>
-    <div>
-			<ul>
-			<% @companies.each do |company| %>
-			<div>
-				<li>
-				<%= company.name %>
-				<% if company.rating == 5 %>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
+
+		<table>
+			<thead>
+				<tr>
+					<th colspan ="3">Top rating</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @companies.each do |company| %>
+					<tr>
+						<td><%= company.name %></td>
+						<td>
+						<% if company.rating == 5 %>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+						<% end %>
+						<% if company.rating == 4 %>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9734;</span>
+						<% end %>
+						<% if company.rating == 3 %>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+						<% end %>
+						<% if company.rating == 2 %>
+							<span>&#9733;</span>
+							<span>&#9733;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+						<% end %>
+						<% if company.rating == 1 %>
+							<span>&#9733;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+							<span>&#9734;</span>
+						<% end %>
+						</td>
+
+						<td><%= "#{company.rating} /5" %></td>
+                    </tr>
 				<% end %>
-				<% if company.rating == 4 %>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-				<% end %>
-				<% if company.rating == 3 %>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-				<% end %>
-				<% if company.rating == 2 %>
-					<span>&#9733;</span>
-					<span>&#9733;</span>
-				<% end %>
-				<% if company.rating == 1 %>
-					<span>&#9733;</span>
-				<% end %>
-				<%= "#{company.rating} /5" %>
-				</li>
-				</div>
-			<% end %>
-			</ul>
-		</div>
+			</tbody>
+		</table>
 	</div>
+
   <div class="p-4 flex-grow-1 bd-highlight">
 
     <h3>Benchmark list</h3>
     <p>Accéder à votre benchmark sur les opérateurs téléphones</p>
 
-    <%# <i class="fas fa-bookmark"></i> %>
+	 <form action="/typologies" method="get">
+    <div class="form-row align-items-end px-4 pb-4 text-navbar">
+      <div class="col-auto">
+        <label for="field_name">Field</label>
+        <select name="field_name" class="form-control navbar-benchmark">
+          <% @field_names.each do |field_name| %>
+            <option><%= field_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="form-row align-items-center px-4">
+        <label for="process_name">Process</label>
+        <select name="process_name" class="form-control navbar-benchmark">
+          <% @process_names.each do |process_name| %>
+            <option><%= process_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary align-bottom buttons" id="launch-benchmark-dashboard">Launch benchmark!</button>
+      </div>
+    </div>
+  </form>
+
+
+
+
     <h3 class="fas fa-bookmark">Favorites articles</h3>
-    <%= link_to "Add your favorites articles", articles_path %>
 
 	<% current_user.find_liked_items.each do |article| %>
 		<div class="articles">
@@ -59,6 +103,7 @@
 				</div>
 				<div class="card_icons">
 				<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
+
 				<%= link_to unlike_article_path(article), method: :put do %>
 				<i class="fas fa-trash-alt"></i> Remove from your favorites
 				<% end %>
@@ -70,16 +115,28 @@
 
 
     <h3>Last news</h3>
+	<%= link_to "See more articles", articles_path %>
     <div class="perso-cards__container">
       <% @articles.each do |article| %>
 		    <div class="articles">
-					<%= link_to article_path(article), class: "" do %>
+				<%= link_to article_path(article), class: "" do %>
 					<div class="card_article">
 						<div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
 							<p class="title"><%= article.title %></p>
 						</div>
 						<div class="card_icons">
-						<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
+							<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
+
+							<% if current_user.find_liked_items.include?(article) %>
+					    		<%= link_to unlike_article_path(article), method: :put do %>
+				         			<i class="fas fa-trash-alt"></i> Remove from your favorites
+					    		<% end %>
+							<% else %>
+                       			<%= link_to like_article_path(article), method: :put do %>
+									<i class="far fa-bookmark"></i> Add in your favorites
+				       			<% end %>
+							<% end %>
+
 						</div>
 					</div>
 			   <% end %>
