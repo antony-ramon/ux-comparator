@@ -1,14 +1,15 @@
 // Specific CSS for your home-page
 .banner {
 	background-size: cover;
-	height: 350px;
+	// height: calc(100vh - 103px);
   background-position: center;
   padding: 100px 0;
   margin-bottom: 30px;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
 }
 .banner img {
 	width: 50%;
@@ -46,7 +47,7 @@
 	margin-left: 50px;
 }
 .icon {
-	color: white; 
+	color: white;
 	font-family: $body-font;
 	text-align: center;
 	margin-top: 5em;

@@ -1,22 +1,71 @@
-.content-wrapper {
-  background-color: #fff;
-}
+// .content-wrapper {
+//   background-color: #fff;
+// }
 h1 {
   padding: 20px;
   font-family: $headers-font;
   color: $picotee-blue;
 }
+
+// .article_picture {
+//   img {
+//     style: background-image;
+//     width:80%;
+//     height: 200px;
+//     object-fit: cover;
+//   }
+// }
+// .content-container {
+// 	margin: 200px;
+// 	margin-top: 100px;
+// }
+
 .article_picture {
   img {
+ // style: background-image; // added by Lucille, removed by Camille
     width:80%;
     height: 200px;
     object-fit: cover;
   }
 }
 .content-container {
-	margin: 250px;
+	margin: 250px; // Lucille had put 200px
 	margin-top: 100px;
 }
+
 .author {
 	font-size: 1em;
 }
+
+.display_article{
+display:block !important;
+}
+
+// .title {
+//    text-align: center;
+
+// }
+.paragraph{
+  margin-top: 30px;
+  width:600px;
+}
+
+.btn {
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // align-item: right;
+  padding-bottom: 40px;
+}
+
+.article_img{
+  position:relative;
+}
+
+.article_info {
+    position: absolute;
+    top: 0;
+    width: 600px;
+    padding: 40px;
+    text-align: left;
+    }

@@ -35,17 +35,19 @@ a.article_link {
 }
 .title, .author {
   text-transform: capitalize;
-  color: black;
+  color: white;
   padding: 10px;
   font-family: $headers-font;
   font-weight: bolder;
-  font-size: 1em;
+  font-size: 2em;
 }
 .author {
   margin-top: 0;
-  font-size: .8em;
-  color: $picotee-blue;
+  font-size: 0.8em; // Camille
+  color: white; // Camille
+// color: $picotee-blue; // Lucille
+  font-weight: 100; // Camille
 }
 .card-content {
-  height: 150px;
+  height: 150px; // Lucille
 }
