@@ -11,79 +11,38 @@
 
  -->
 
-<p>Coucou</p>
-
 <%if params[:field_name].nil? || params[:process_name].nil? %>
-<p>Coucou</p>
+  <div class="text-center m-4 p-4">
+    <h3>Get started!</h3>
+    <h4>Create your first benchmark by filling the two fileds of the form above ☝️</h4>
+  </div>
 <% else %>
 
-<% @field = Field.find_by(name: params[:field_name]) %>
-<% @process_name = params[:process_name] %>
-<% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
-<% @companies = Company.where(field: @field) %>
+  <% @field = Field.find_by(name: params[:field_name]) %>
+  <% @process_name = params[:process_name] %>
+  <% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
+  <% @companies = Company.where(field: @field) %>
 
-
-
-
-<% @companies.each do |company| %>
-<li><%= company.name %></li>
-<% end %>
-
-<% @companies.each do |company| %>
-  <% @typologies.each do |typology| %>
-    <% @indicator = Indicator.find_by(company: company, typology: typology) %>
-    <li><%= @indicator.content %></li>
-  <% end %>
-<% end %>
-
-<% @typology = @typologies.first %>
-
-<% @liked_by_user = 0 %>
-<% @typology.get_likes.each do |like| %>
-  <% @liked_by_user = 1 if like.voter_id == current_user.id %>
-<% end %>
-<p><%= @liked_by_user > 0 ? "UNLIKE" : "LIKE" %></p>
-<div id="counter_likes">
-<p><%= @liked_by_user %>
-</p>
-
-<div>
-<i class="fas fa-bookmark"></i> Benchmark already in your favorites<br>
-
-<%= link_to unlike_typology_path(@typology), remote: true, method: :put do %>
-( <i class="far fa-trash-alt"></i> remove from favorites)
-<% end %>
-
-</div>
-<div>
-<i class="fas fa-plus-circle"></i> Add this benchmark to your favorites!
-</div>
-
-<!-- redirect_to request.referrer, notice: "The article has been added to your favorites" -->
-
-<div class="table-benchmark">
-  <div class="p-5 text-center">
-    <h3 class="mt-3 mb-5">Here is the benchmark of the <%= params[:field_name].downcase %>'s UX on the <%= @process_name.downcase %> process </h3>
+  <div class="container p-5">
+    <table class="table table-striped text-center align-middle benchmark-table">
+        <tr>
+          <th class="align-middle">
+            <div id="bookmark">
+              <%= render 'bookmark', typologies: @typologies %>
+            </div>
+          </th>
+          <% @companies.each do |company| %>
+            <th class="align-middle"><%= company.name %></th>
+          <% end %>
+        </tr>
+        <% @typologies.each do |typology| %>
+          <tr>
+            <th class="align-middle"><%= typology.title %></th>
+              <% @companies.each do |company| %>
+              <td class="align-middle"><%= Indicator.find_by(typology: typology, company: company).content %></td>
+            <% end %>
+          </tr>
+        <% end %>
+    </table>
   </div>
-</div>
-
-
-<table>
-  <tr>
-    <th> Typology </th>
-    <% @companies.each do |company| %>
-      <th><%= company.name %></th>
-    <% end %>
-  </tr>
-   <tr>
-    <td></td>
-    <% @companies.each do |company| %>
-      <td>
-     <% company.indicators.each do |indicator| %>
-      <p><%= indicator.typology.title %><%= indicator.content %></p>
-     <% end %>
-     </td>
-    <% end %>
-</table>
-
 <% end %>

@@ -5,18 +5,41 @@
   display: flex;
   align-items: center;
   color: white;
-  width: 40%;
-  padding: initial;
+  width: 800px;
+  padding: 10px;
+  font-size: 90%;
+}
+
+th {
+  text-align: center;
+}
+
+td {
+  width: 200px;
 }
 
 .info-container {
   display: flex;
+  padding: 0px;
 }
 
 .info-container h3 {
   color: $picotee_blue;
   }
 
+  .info-container h4 {
+  color: white;
+  }
+
+  .info-container ul {
+  padding: 0px;
+  }
+
 .fas {
 color: $picotee_blue;
+}
+
+#launch-benchmark-dashboard {
+  color: white;
+  background-color: $picotee_blue;
 }

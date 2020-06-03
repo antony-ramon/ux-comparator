@@ -11,7 +11,6 @@
 }
 .navbar img {
   width: 40px;
-
 }
 .navbar-logged img {
 	width: 40px;
@@ -40,9 +39,13 @@
 }
 #launch-benchmark {
 	color: $picotee-blue;
+  background-color: $celeste;
+  border-radius: 10px;
+  transition: background color 0.2s ease;
 		&:hover {
 			background-color: $picotee-blue;
 			color: white;
+      border: solid white 1px;
 		}
 }
 label {
@@ -61,7 +64,7 @@ label {
 		flex-align: column;
 		justify-content: center;
 		align-items: center;
-		color: $picotee_blue;
+		color: white;
 		padding: 1.3em;
 		&:hover {
 			color: #090920;

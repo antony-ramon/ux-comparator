@@ -10,10 +10,18 @@
 			<div class="d-flex justify-content-between align-items-center">
 				<p class="author m-0">By <%= article.author %></p>
 				<div class="card_icons">
-					<%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
-					<%= link_to unlike_article_path(article), method: :put do %>
-				<i class="fas fa-trash-alt"></i> Remove from your favorites
-				<% end %>
+
+					<% if current_user.find_liked_items.include?(article) %>
+					   <%= link_to unlike_article_path(article), method: :put do %>
+				         <i class="fas fa-trash-alt"></i> Remove from your favorites
+					    <% end %>
+					<% else %>
+                       <%= link_to like_article_path(article), method: :put do %>
+						<i class="far fa-bookmark"></i> Add in your favorites
+				       <% end %>
+					<% end %>
+
+					<%= image_tag "share.png", alt: "bookmark" %>
 				</div>
 			</div>
 		</div>

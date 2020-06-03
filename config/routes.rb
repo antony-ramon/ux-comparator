@@ -5,16 +5,16 @@ Rails.application.routes.draw do
    # resources :articles, only: [:index, :show]
   resources :typologies, only: [:index, :update] do
     member do
-      put "like" => "typologies#like"
-      put "unlike" => "typologies#unlike"
+      put "like", to: "typologies#like"
+      put "unlike", to: "typologies#unlike"
     end
   end
 
   # fields/:field_id/typologies?process=facturation
   resources :articles, only: [:index, :show, :update, :edit] do
     member do
-      put "like" => "articles#like"
-      put "unlike" => "articles#unlike"
+      put "like", to: "articles#like"
+      put "unlike", to: "articles#unlike"
     end
   end
 
