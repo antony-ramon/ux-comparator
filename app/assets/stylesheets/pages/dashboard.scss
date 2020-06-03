@@ -1,13 +1,21 @@
 #rating {
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
   background: $picotee_blue;
   display: flex;
   align-items: center;
   color: white;
-  width: 800px;
-  padding: 10px;
+  width: 250px;
+  padding: 160px 10px 10px 10px;
   font-size: 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+#dashboard-background {
+  padding: 20px 20px 20px 270px;
 }
 
 th {
@@ -28,6 +36,10 @@ td {
   color: $picotee_blue;
   }
 
+.info-container label {
+  color: $picotee_blue;
+  }
+
   .info-container h4 {
   color: white;
   }
@@ -43,4 +55,5 @@ color: $picotee_blue;
 #launch-benchmark-dashboard {
   color: white;
   background-color: $picotee_blue;
+  border-radius: 10px;
 }
