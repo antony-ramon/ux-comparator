@@ -4,17 +4,25 @@
   <% liked_by_user = 1 if like.voter_id == current_user.id %>
 <% end %>
 
-<% if liked_by_user > 0 %>
-  <div class="container">
-    <i class="fas fa-bookmark"></i> Benchmark in your favorites<br>
-    <%= link_to unlike_typology_path(typology), remote: true, class: "text-muted font-weight-light", method: :put do %>
-      ( <i class="far fa-trash-alt"></i> remove)
+<div class="container pt-4 text-right align-middle">
+  <% if liked_by_user > 0 %>
+
+
+
+
+
+
+
+
+    <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light", method: :put do %>
+      <i class="far fa-trash-alt"></i> Remove from favorites
+<!--       <i class="fas fa-bookmark"></i> This benchmark is in your favorites
+ -->      <!-- <button type="button" class="btn btn-light btn-sm">(<i class="far fa-trash-alt"></i> remove)</button> -->
     <% end %>
-  </div>
-<% else %>
-  <div class="container">
-    <%= link_to like_typology_path(typology), remote: true, class: "text-danger", method: :put do %>
-      <i class="fas fa-plus-circle text-danger"></i> Add this benchmark to your favorites!
+  <% else %>
+    <%= link_to like_typology_path(typology), remote: true, class: "btn btn-success btn-sm", method: :put do %>
+      <i class="fas fa-plus-circle"></i> Add to favorites!
     <% end %>
-  </div>
-<% end %>
+
+  <% end %>
+</div>

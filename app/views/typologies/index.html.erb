@@ -23,14 +23,14 @@
   <% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
   <% @companies = Company.where(field: @field) %>
 
-  <div class="container p-5">
+  <div id="bookmark">
+    <%= render 'bookmark', typologies: @typologies %>
+  </div>
+
+  <div class="container p-1">
     <table class="table table-striped text-center align-middle benchmark-table">
         <tr>
-          <th class="align-middle">
-            <div id="bookmark">
-              <%= render 'bookmark', typologies: @typologies %>
-            </div>
-          </th>
+          <th class="align-middle"></th>
           <% @companies.each do |company| %>
             <th class="align-middle"><%= company.name %></th>
           <% end %>
