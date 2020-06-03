@@ -80,11 +80,10 @@
 	    </div>
 
 
-
-			<div class="perso-cards__container">
+			<div class="bench-cards__container">
 				<% current_user.find_liked_items.each do |typology| %>
 						<% if typology.class == Typology %>
-							<div class="articles bg-light">
+							<div class="">
 								<%= link_to typologies_path(params:{field_name:typology.field.name, process_name:typology.process_name}), class: "" do %>
 									<div class="card_benchmark">
 										<div class="bench_img">
