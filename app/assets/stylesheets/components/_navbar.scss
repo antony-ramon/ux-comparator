@@ -18,23 +18,24 @@
 }
 .navbar-buttons a {
 	color: $picotee_blue;
+
+  .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 }
 .navbar-buttons a {
-	font-size: .7em;
-	padding: 7px;
-	width: 100px;
-	text-align: center;
-	text-decoration: none;
-  border-radius: 4px;
-  font-weight: lighter;
-  background: $celeste;
-  transition: background 0.3s ease;
-  border: 1px solid $picotee_blue;
-  	&:hover{
-  	background: $picotee_blue;
-  	color: #fff;
+  text-decoration: none;
+    color: white;
+    padding: 10px;
+    font-size: .8em;
+    cursor: pointer;
+    text-decoration: underline;
   	}
-}
+
 .navbar-benchmark {
 	font-size: .8em;
 }
@@ -58,20 +59,30 @@ label {
 	color: white;
 }
 .explore_icons {
-	font-size: 1.2em;
-	margin: 20px;
+	font-size: 1em;
+
+   }
+
+   .img {
+  filter: grayscale(100%);
+}
+
+.a_logout{
+
+
+}
+
 	a {
 		text-decoration: none;
-		flex-align: column;
-		justify-content: center;
-		align-items: center;
 		color: white;
-		padding: 1.3em;
+    padding: 10px;
 		&:hover {
-			color: #090920;
-		}
+			color: #8AABDD;
+
+    cursor: pointer;
+      text-decoration: underline;}
 	}
-}
+
 //LOGGED NAVBAR
 .logged {
 	background-color: $picotee_blue;
