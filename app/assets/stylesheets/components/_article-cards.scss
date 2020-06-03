@@ -2,7 +2,6 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     overflow: hidden;
-    background-color: white;
 }
 #first_article {
   margin-right: 100px;
@@ -33,13 +32,17 @@ a.article_link {
   width: 20px;
   margin-right: 20px;
 }
-.title, .author {
+
+.author{
   text-transform: capitalize;
+}
+
+.title, .author {
   color: white;
   padding: 10px;
   font-family: $headers-font;
-  font-weight: bolder;
-  font-size: 2em;
+  // font-weight: bold;
+  // font-size: 2em;
 }
 .author {
   margin-top: 0;
@@ -50,4 +53,22 @@ a.article_link {
 }
 .card-content {
   height: 150px; // Lucille
+}
+
+.articles:hover {
+  border: 1px blue solid;
+}
+
+.articles {
+  border: 1px transparent solid;
+  border-radius: 5px;
+}
+
+.art_img {
+  // background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(photo-article.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  height: 100px;
 }
