@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 .banner {
 	background-size: cover;
-	// height: calc(100vh - 103px);
+	height: 60vh;
   background-position: center;
   padding: 100px 0;
   margin-bottom: 30px;
@@ -67,4 +67,5 @@ a {
   font-size: 1em;
   width: 150px;
   line-height: 20px;
+  font-family: $headers-font;
 }

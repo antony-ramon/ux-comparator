@@ -12,11 +12,11 @@
 				<div class="card_icons">
 					<% if current_user.find_liked_items.include?(article) %>
 					   <%= link_to unlike_article_path(article), method: :put do %>
-				         <i class="fas fa-trash-alt buttons img-fluid"></i>
+				         <i class="fas fa-trash-alt buttons-i img-fluid"></i>
 					    <% end %>
 					<% else %>
                        <%= link_to like_article_path(article), method: :put do %>
-						<i class="far fa-bookmark buttons" id="favorite"></i>
+						<i class="far fa-bookmark buttons-i" id="favorite"></i>
 				       <% end %>
 					<% end %>
 				</div>
