@@ -1,0 +1,66 @@
+<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <table>
+							<thead>
+								<tr>
+									<th colspan ="2">Top rating</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% @companies.each do |company| %>
+									<tr>
+										<td><%= company.name %></td>
+										<td>
+										<% if company.rating == 5 %>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+										<% end %>
+										<% if company.rating == 4 %>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9734;</span>
+										<% end %>
+										<% if company.rating == 3 %>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+										<% end %>
+										<% if company.rating == 2 %>
+											<span>&#9733;</span>
+											<span>&#9733;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+										<% end %>
+										<% if company.rating == 1 %>
+											<span>&#9733;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+											<span>&#9734;</span>
+										<% end %>
+										</td>
+				          </tr>
+								<% end %>
+							</tbody>
+					</table>
+		      </div>
+		    </div>
+		  </div>
+		</div>
