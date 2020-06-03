@@ -3,14 +3,15 @@
 
 <div class="navbar logged pos-f-t">
 	<%= link_to root_path, class: "navbar-brand" do %>
-		<%= image_tag "logo_white.png" %>
+		<a href="http://www.ux-comparator.com/dashboard">
+    <%= image_tag "logo_white.png" %>
 	<% end %>
   <div class="d-flex justify-content-around">
     <div class="explore_icons">
-      <%= link_to "<i class='fas fa-columns'></i> My dashboard".html_safe, dashboard_path %>
+      <h3><%= link_to "<i class='fas fa-columns'></i> My dashboard".html_safe, dashboard_path %></h3>
     </div>
     <div class="explore_icons">
-      <%= link_to "<i class='fas fa-search'></i> Latest news".html_safe, articles_path %>
+      <h3><%= link_to "<i class='fas fa-search'></i> Latest news".html_safe, articles_path %></h3>
     </div>
   </div>
 
@@ -33,11 +34,12 @@
         </select>
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark">See benchmark!</button>
+        <button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark">Go!</button>
       </div>
     </div>
   </form>
   <div class="navbar-buttons">
+    <img class="avatar-large" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/art">
   	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
 
