@@ -35,6 +35,12 @@
 .content-wrapper {
   background-color: #fff;
 }
+a {
+	text-decoration: none;
+	color: $picotee_blue;
+	font-family: $headers-font;
+	font-size: .9em;
+}
 .icons-container {
 	background-color: $picotee_blue;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

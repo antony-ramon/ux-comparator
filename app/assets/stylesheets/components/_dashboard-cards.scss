@@ -1,0 +1,19 @@
+.dashboard-art_img {
+  // background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(photo-article.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  height: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+#dashboard-title {
+  color: white;
+  padding: 10px;
+  font-family: $headers-font;
+  font-weight: bold;
+  font-size: .8em;
+}
+.articles:hover {
+  border: 2px $celeste solid;
+}
