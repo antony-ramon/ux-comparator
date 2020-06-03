@@ -44,6 +44,58 @@ color: $picotee_blue;
 a:hover {
  text-decoration: none;
 }
+
+.card_benchmark img {
+  height: 275px;
+  color: white;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  padding: .3em;
+  object-fit: cover;
+}
+
+.card_benchmark {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.bench_img {
+  // background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(photo-article.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  height: 100px;
+}
+
+.bench-field-title {
+  color: white;
+  padding: 10px;
+  font-family: $headers-font;
+  font-weight: bold;
+
+}
+
+.bench-process-title {
+  color: white;
+  padding: 10px;
+  font-family: $headers-font;
+}
+
+.bench-card-icons {
+  display: flex;
+  padding: 10px;
+  align-items: flex-end;
+}
+.bench-card-icons img {
+  align-items: flex-end;
+  height: 20px;
+  width: 20px;
+  margin-right: 20px;
+}
+
 #rating-button {
   margin: 20px;
   position: absolute;
