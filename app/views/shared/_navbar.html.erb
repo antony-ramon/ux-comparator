@@ -4,7 +4,7 @@
 <div class="navbar logged pos-f-t">
  <!--  <div class="d-flex justify-content-between"> -->
     <div>
-      <%= link_to dashboard_path, class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo_white.png" %>
       <% end %>
       <span class="explore_icons">
@@ -13,36 +13,30 @@
       </span>
     </div>
 
-    <form action="/typologies" method="get">
-      <div class="form-row align-items-end px-4 pb-4 text-navbar">
-        <div class="col-auto">
-          <label for="field_name">Field</label>
-          <select name="field_name" class="form-control navbar-benchmark">
-            <% @field_names.each do |field_name| %>
-              <option><%= field_name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="form-row align-items-right px-4">
-          <label for="process_name">Process</label>
-          <select name="process_name" class="form-control navbar-benchmark">
-            <% @process_names.each do |process_name| %>
-              <option><%= process_name %></option>
-            <% end %>
-          </select>
-        </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark">Go!</button>
-        </div>
-      </div>
-    </form>
+        <form action="/typologies" method="get">
+          <div class="d-flex flex-row">
+            <div class="form-row align-items-end px-3  py-2 text-navbar">
+              <select name="field_name" class="js-example-responsive select2 mx-2">
+                <% @field_names.each do |field_name| %>
+                  <option value="<%= field_name %>"><%= field_name %></option>
+                <% end %>
+              </select>
+            </div>
+            <div class="form-row align-items-end px-3 py-2 text-navbar">
+              <select name="process_name" class="js-example-responsive select2 mx-2">
+                <% @process_names.each do |process_name| %>
+                  <option value="<%= process_name %>"><%= process_name %></option>
+                <% end %>
+              </select>
+              <button type="submit" class="btn btn-primary br-3 h-75 mx-4" id="launch-benchmark">Launch benchmark</button>
+            </div>
+          </div>
+        </form>
+
  <!--  </div> -->
   <div class="navbar-buttons">
-    <img src="https://kitt.lewagon.com/placeholder/users/arthur-littm" alt="Avatar" class="avatar img">
+    <%= image_tag "Avatar.JPG", class: "avatar img"%>
   	<%= link_to "Log out", destroy_user_session_path, method: :delete %>
   </div>
 
 </div>
-
-
-

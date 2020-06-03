@@ -4,6 +4,7 @@ ruby '2.6.6'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.12.0'
 gem 'acts_as_votable'
+gem 'select2-rails'
 
 gem 'bootsnap', require: false
 gem 'devise'
