@@ -52,7 +52,17 @@ td {
 color: $picotee_blue;
 }
 
+.favorites-benchmark {
+  color: $picotee_blue;
+}
+
 #launch-benchmark-dashboard {
+  color: white;
+  background-color: $picotee_blue;
+  border-radius: 10px;
+}
+
+#add-process {
   color: white;
   background-color: $picotee_blue;
   border-radius: 10px;
