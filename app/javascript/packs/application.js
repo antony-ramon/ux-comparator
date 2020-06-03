@@ -5,6 +5,7 @@ require("channels");
 require("select2");
 
 import "bootstrap";
+
 import "jquery";
 // import { initSelect2 } from'../plugins/init_select2';
 
@@ -22,3 +23,7 @@ const initSelect2 = () => {
 // export { initSelect2 };
 
 initSelect2();
+
+import {share_url} from "../plugins/share_button";
+
+share_url()

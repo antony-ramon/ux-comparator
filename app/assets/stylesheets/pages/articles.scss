@@ -3,7 +3,17 @@ h1 {
   font-family: $headers-font;
   color: $picotee-blue;
 }
-
+.article-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
 .article_img {
   img {
     width:90%;
@@ -40,4 +50,7 @@ display:block !important;
 
 .article_img{
   position:relative;
+}
+.paragraph {
+  color: #6A6A6A;
 }

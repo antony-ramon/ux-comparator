@@ -4,15 +4,19 @@
   <% liked_by_user = 1 if like.voter_id == current_user.id %>
 <% end %>
 
+
+
+
+
+
 <div class="container pt-4 text-right align-middle">
+
+  <div class="btn btn-success" id="share_button"><i class="fas fa-copy"></i> Copy the url of this page
+  </div>
+  <input id="copy" name="copy" type="hidden">
+
+
   <% if liked_by_user > 0 %>
-
-
-
-
-
-
-
 
     <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light", method: :put do %>
       <i class="far fa-trash-alt"></i> Remove from favorites
