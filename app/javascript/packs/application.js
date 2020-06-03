@@ -22,7 +22,7 @@ const initSelect2 = () => {
 
 // export { initSelect2 };
 
-initSelect2();
+// initSelect2();
 
 import {share_url} from "../plugins/share_button";
 
