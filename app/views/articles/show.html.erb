@@ -1,35 +1,20 @@
-
-
-
 <div class="banner">
-  <div class="display_article">
-    <div class="btn">
-    <%= link_to 'Edit this article', edit_article_path, class: "buttons" %>
-    <%= link_to 'See other articles', articles_path, class: "buttons" %>
-    </div>
     <div class="article_img">
       <% if @article.photo.attached? %>
         <%= cl_image_tag @article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
       <% else %>
         <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
       <% end %>
+    </div>
     <div class="article_info">
-      <h1 class="title"><%= @article.title %></h1>
-      <p class="author">By <%= @article.author %></p>
-    </div>
-    </div>
+      <h1 class="art_title"><%= @article.title %></h1>
+      <p class="art_author">By <%= @article.author %></p>
     </div>
     <div>
       <p class="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a velit eget orci posuere vulputate. Etiam nibh ipsum, ultrices ac aliquam a, scelerisque eu velit. Nulla odio mauris, posuere non nisl eget, dapibus consequat orci. Sed luctus fringilla sapien, sit amet faucibus massa dictum in. Fusce convallis euismod mi, ut volutpat nisi efficitur id. Duis consectetur ac mi et venenatis. Nulla vestibulum ultricies nunc, id eleifend dui. Mauris ullamcorper mattis consequat. In vestibulum ex in imperdiet hendrerit. Nullam dapibus vehicula metus, et dignissim turpis placerat at. Etiam mollis, lorem nec interdum facilisis, orci ante commodo orci, ut tincidunt erat sem ac mi. Pellentesque dignissim efficitur mauris, nec faucibus arcu tristique nec.
-
-Maecenas viverra ex nulla, sed pharetra mi iaculis vel. Suspendisse dapibus velit id accumsan varius. Nullam vestibulum, orci vitae imperdiet blandit, dui mauris aliquet felis, eget mattis magna ipsum et ligula. Suspendisse potenti. Curabitur laoreet, elit laoreet vestibulum aliquam, neque urna tristique nisi, ut maximus risus arcu sit amet quam. Mauris eget mi ut elit pellentesque cursus vitae non urna. Phasellus mattis, quam vel hendrerit vulputate, nisl metus semper massa, eget sodales nisi ligula eu neque. Ut commodo dolor ac arcu auctor pellentesque. Nulla euismod nisl ipsum, sed pharetra magna accumsan vel. Pellentesque lacinia elit vestibulum nunc blandit, non facilisis massa rutrum. Etiam maximus vel tellus sit amet bibendum. Curabitur vitae lorem a est malesuada eleifend. In vel aliquet augue, ut posuere mi. Quisque varius, nisl eget dapibus laoreet, elit lacus vehicula sapien, nec varius tellus lacus eu nulla.
-
-Nam non sollicitudin metus, in suscipit ante. Fusce eu neque vitae urna ornare aliquam. Proin in vulputate nisi. Vivamus velit lectus, bibendum ac tempor at, commodo ut libero. Mauris suscipit, orci ut sodales hendrerit, erat erat vehicula magna, ac aliquet turpis risus nec justo. Sed tincidunt mattis mi, eu finibus est. Vestibulum sollicitudin ac quam in fringilla. Phasellus nec vehicula augue. Vestibulum a est quis dui consectetur convallis. Vivamus varius luctus turpis et vulputate.
-
-Ut urna dui, fermentum sit amet malesuada at, commodo vel massa. Integer gravida urna at justo finibus malesuada. Aliquam ex nisl, pharetra et accumsan at, congue in lorem. Sed pulvinar rutrum risus, vel tincidunt enim tincidunt id. Vestibulum at eleifend lectus. Nulla orci metus, pulvinar sed semper ut, interdum at nibh. Donec vel porttitor tellus. Fusce nibh massa, tempus at consequat et, pharetra quis eros. Nulla ullamcorper tempor velit vitae lacinia. Mauris ipsum ex, pretium non vehicula at, porttitor nec mauris.
-
-Sed ullamcorper varius imperdiet. Mauris purus metus, iaculis ut tellus sit amet, vestibulum efficitur turpis. Mauris mollis ex facilisis ipsum pellentesque, eget tristique erat interdum. Etiam suscipit nec nibh eu lobortis. Vestibulum id nisl libero. In hac habitasse platea dictumst. Praesent lacinia molestie congue. Aliquam viverra pellentesque magna, vel sollicitudin dolor suscipit sit amet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi aliquam ante eget auctor interdum. Suspendisse at nisi magna. Phasellus sodales nec dui pellentesque lobortis.
+       <%= @article.content %>
       </p>
+      <%= link_to 'Edit this article', edit_article_path, class: "buttons" %>
+      <%= link_to 'See other articles', articles_path, class: "buttons" %>
   </div>
 </div>
