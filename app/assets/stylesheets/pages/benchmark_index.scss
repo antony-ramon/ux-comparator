@@ -24,3 +24,13 @@
 .benchmark-table {
   height: 70vh;
 }
+
+
+#bookmark .btn {
+    padding:0.25rem 0.5rem;
+}
+
+#bookmark .btn-success:hover .fa-plus-circle {
+    color: white;
+    transition: color 0.15s ease-in-out;
+}
