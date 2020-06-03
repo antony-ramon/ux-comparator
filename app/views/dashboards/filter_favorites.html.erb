@@ -1,0 +1,20 @@
+<% @typologies_liked = [] %>
+<% @typologies = Typology.all %>
+<% @typologies.each do |typology| %>
+  <% typology.get_likes.each do |like| %>
+    <% @typologies_liked << typology if like.voter_id == current_user.id %>
+  <% end %>
+<% end %>
+
+<% @fields_processes_liked = [] %>
+<% @typologies_liked.each do |typology_liked| %>
+    <% @fields_processes_liked << [typology_liked.process_name, typology_liked.field.name] %>
+<% end %>
+
+<% @fields_processes_liked = @fields_processes_liked.uniq %>
+
+<div>
+  <% @fields_processes_liked.each do |field_process_liked| %>
+    <%= field_process_liked[0] %> / <%= field_process_liked[1] %> ---
+  <% end %>
+</div>
