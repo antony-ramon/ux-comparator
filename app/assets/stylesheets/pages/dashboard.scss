@@ -1,21 +1,17 @@
 #dashboard-background {
   padding: 20px 20px 20px 270px;
 }
-
 th {
   text-align: center;
   font-size: 16px;
 }
-
 td {
   width: 200px;
 }
-
 .info-container {
   display: flex;
   padding: 0px;
 }
-
 .info-container h3 {
   color: $picotee_blue;
   }
@@ -23,39 +19,31 @@ td {
 .info-container label {
   color: $picotee_blue;
   }
-
-  .info-container h4 {
+.info-container h4 {
   color: white;
   }
-
-  .info-container ul {
+.info-container ul {
   padding: 0px;
   }
-
 .fas {
 color: $picotee_blue;
 }
-
 .favorites-benchmark {
   color: $picotee_blue;
 }
-
 #launch-benchmark-dashboard {
   color: white;
   background-color: $picotee_blue;
   border-radius: 10px;
 }
-
 #add-process {
   color: white;
   background-color: $picotee_blue;
   border-radius: 10px;
 }
-
 a:hover {
  text-decoration: none;
 }
-
 
 .card_benchmark img {
   height: 275px;
@@ -106,4 +94,9 @@ a:hover {
   height: 20px;
   width: 20px;
   margin-right: 20px;
+}
+
+#rating-button {
+  margin: 20px;
+  position: absolute;
 }

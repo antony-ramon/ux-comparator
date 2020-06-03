@@ -1,5 +1,5 @@
 .card_article {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
     overflow: hidden;
 }
@@ -32,43 +32,26 @@ a.article_link {
   width: 20px;
   margin-right: 20px;
 }
-
-.author{
-  text-transform: capitalize;
-}
-
 .title, .author {
-  color: white;
+  color: black;
   padding: 10px;
   font-family: $headers-font;
-  // font-weight: bold;
-  // font-size: 2em;
+  font-weight: bold;
+  font-size: 1em;
 }
 .author {
+  text-transform: capitalize;
   margin-top: 0;
-  font-size: 0.8em; // Camille
-  color: white; // Camille
-// color: $picotee-blue; // Lucille
-  font-weight: 100; // Camille
+  font-size: .9em;
+  color: $picotee-blue;
+  font-weight: 100;
 }
 .card-content {
-  height: 150px; // Lucille
+  height: 150px;
 }
-
-.articles:hover {
-  border: 1px blue solid;
-}
-
-.articles {
-  border: 1px transparent solid;
-  border-radius: 5px;
-}
-
-.art_img {
-  // background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg);
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(photo-article.png);
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
-  height: 100px;
+#favorite {
+  text-decoration: none;
+  color: $picotee_blue;
+  font-size: .9em;
+  padding-right: 5px;
 }

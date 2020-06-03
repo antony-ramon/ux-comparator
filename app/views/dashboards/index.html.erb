@@ -1,25 +1,27 @@
+<!-- 	    MODAL BUTTON
+ --><button type="button" class="buttons" id="rating-button" data-toggle="modal" data-target="#exampleModal">TOP 20 companies rating</button>
 <div class="container">
 <% @field_names = Field.pluck(:name) %>
 <% @process_names = Typology.pluck(:process_name).uniq %>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Top 20 companies</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        	<span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-					<table>
+				<table>
 						<thead>
 							<tr>
 								<th colspan ="2">Top rating</th>
 							</tr>
 						</thead>
-
 						<tbody>
 							<% @companies.each do |company| %>
 								<tr>
@@ -64,21 +66,17 @@
 			          </tr>
 							<% end %>
 						</tbody>
-					</table>
-				</div>
-      </div>
+				</table>
+			</div>
+     </div>
     </div>
   </div>
 
 	<div class="info-container bd-highlight">
-		<div class="bd-highlight flex-column" id="rating">
-
 	  <div class="p-4 flex-grow-1 bd-highlight">
 	    <div class="d-flex flex-row align-items-middle">
 	      <div class="d-inline"><i class="fas fa-compress-alt p-2"></i></div>
 	      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
-	     <button type="button" class="buttons" data-toggle="modal" data-target="#exampleModal">
-  				TOP 20 companies rating</button>
 	    </div>
 
 
@@ -116,11 +114,11 @@
 	    <div class="perso-cards__container">
 	      <% current_user.find_liked_items.each do |article| %>
 	        <% if article.class == Article %>
-	          <div class="articles bg-light">
+	          <div class="articles">
 	            <%= link_to article_path(article), class: "" do %>
 	              <div class="card_article">
-	                <div class="art_img">
-	                 <p class="title"><%= article.title %></p>
+	                <div class="dashboard-art_img">
+	                 <p class="title" id="dashboard-title"><%= article.title %></p>
 	                </div>
 	                <div class="card_icons">
 	                  <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
@@ -145,8 +143,8 @@
 	        <div class="articles">
 	          <%= link_to article_path(article), class: "" do %>
 	            <div class="card_article">
-	              <div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
-	                <p class="title"><%= article.title %></p>
+	              <div class="dashboard-art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
+	                <p class="title" id="dashboard-title"><%= article.title %></p>
 	              </div>
 	              <div class="card_icons">
 	                <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
