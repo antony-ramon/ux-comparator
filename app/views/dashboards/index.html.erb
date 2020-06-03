@@ -1,167 +1,183 @@
+<div class="container">
 <% @field_names = Field.pluck(:name) %>
 <% @process_names = Typology.pluck(:process_name).uniq %>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+					<table>
+						<thead>
+							<tr>
+								<th colspan ="2">Top rating</th>
+							</tr>
+						</thead>
 
-
-<div class="info-container bd-highlight">
-	<div class="bd-highlight flex-column" id="rating">
-
-		<table>
-			<thead>
-				<tr>
-					<th colspan ="2">Top rating</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @companies.each do |company| %>
-					<tr>
-						<td><%= company.name %></td>
-						<td>
-						<% if company.rating == 5 %>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-						<% end %>
-						<% if company.rating == 4 %>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9734;</span>
-						<% end %>
-						<% if company.rating == 3 %>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-						<% end %>
-						<% if company.rating == 2 %>
-							<span>&#9733;</span>
-							<span>&#9733;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-						<% end %>
-						<% if company.rating == 1 %>
-							<span>&#9733;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-							<span>&#9734;</span>
-						<% end %>
-						</td>
-                    </tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-
-  <div class="p-4 flex-grow-1 bd-highlight">
-    <div class="d-flex flex-row align-items-middle">
-      <div class="d-inline"><i class="fas fa-compress-alt p-2"></i></div>
-      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
-    </div>
-
-		<div class="favorites-benchmark">Add a link to your favorites process</div>
-		<%# <form action="/typologies" method="get"> %>
-			<div class="form-row align-items-end px-4 pb-4 text-navbar">
-				<div class="col-auto">
-					<select name="field_name" class="form-control navbar-benchmark">
-					<option value="" disabled selected>Select your favorite field</option>
-					<% @field_names.each do |field_name| %>
-						<option><%= field_name %></option>
-					<% end %>
-					</select>
-				</div>
-				<div class="form-row align-items-center px-4">
-					<select name="process_name" class="form-control navbar-benchmark">
-					<option value="" disabled selected>Select your favorites process</option>
-					<% @process_names.each do |process_name| %>
-						<option><%= process_name %></option>
-					<% end %>
-					</select>
-				</div>
-
-				<div class="col-auto">
-				<button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark-dashboard">Add process</button>
-				</div>
-			</div>
-  		<%# </form> %>
-
-		<div class="align-bottom">
-			<% current_user.find_liked_items.each do |typology| %>
-				<div class="btn align-bottom py-1 px-4 br-3" id="add-process">
-					<% if typology.class == Typology %>
-						<%= typology.process_name %>
-						<%# <%= link_to like_typology_path(typology), class: "" do %>
-							<%= link_to unlike_typology_path(typology), method: :put do %>
-								x
+						<tbody>
+							<% @companies.each do |company| %>
+								<tr>
+									<td><%= company.name %></td>
+									<td>
+									<% if company.rating == 5 %>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+									<% end %>
+									<% if company.rating == 4 %>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9734;</span>
+									<% end %>
+									<% if company.rating == 3 %>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+									<% end %>
+									<% if company.rating == 2 %>
+										<span>&#9733;</span>
+										<span>&#9733;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+									<% end %>
+									<% if company.rating == 1 %>
+										<span>&#9733;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+										<span>&#9734;</span>
+									<% end %>
+									</td>
+			          </tr>
 							<% end %>
-					<% end %>
+						</tbody>
+					</table>
 				</div>
-			<% end %>
-		</div>
-
-    <div class="d-flex flex-row align-items-middle">
-      <div class="d-inline"><i class="fas fa-bookmark p-2"></i></div>
-      <div class="d-inline"><h3>My favorites articles</h3></div>
-    </div>
-
-    <div class="perso-cards__container">
-      <% current_user.find_liked_items.each do |article| %>
-        <% if article.class == Article %>
-          <div class="articles bg-light">
-            <%= link_to article_path(article), class: "" do %>
-              <div class="card_article">
-                <div class="art_img">
-                 <p class="title"><%= article.title %></p>
-                </div>
-                <div class="card_icons">
-                  <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
-                  <%= link_to unlike_article_path(article), method: :put do %>
-                    <i class="fas fa-trash-alt"></i> Remove from favorites
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="d-flex flex-row align-items-center">
-      <div class="d-inline"><i class="fas fa-book-open"></i></div>
-      <div class="d-inline p-2"><h3>Latest news</h3></div>
-      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
-    </div>
-    <div class="perso-cards__container">
-      <% @articles.each do |article| %>
-        <div class="articles">
-          <%= link_to article_path(article), class: "" do %>
-            <div class="card_article">
-              <div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
-                <p class="title"><%= article.title %></p>
-              </div>
-              <div class="card_icons">
-                <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
-                <% if current_user.find_liked_items.include?(article) %>
-                  <%= link_to unlike_article_path(article), method: :put do %>
-                    <i class="fas fa-trash-alt"></i> Remove from favorites
-                  <% end %>
-                <% else %>
-                  <%= link_to like_article_path(article), method: :put do %>
-                    <i class="far fa-bookmark"></i> Add to favorites
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
+
+	<div class="info-container bd-highlight">
+		<div class="bd-highlight flex-column" id="rating">
+
+	  <div class="p-4 flex-grow-1 bd-highlight">
+	    <div class="d-flex flex-row align-items-middle">
+	      <div class="d-inline"><i class="fas fa-compress-alt p-2"></i></div>
+	      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
+	     <button type="button" class="buttons" data-toggle="modal" data-target="#exampleModal">
+  				TOP 20 companies rating</button>
+	    </div>
+
+			<div class="favorites-benchmark">Add a link to your favorites process</div>
+			<%# <form action="/typologies" method="get"> %>
+				<div class="form-row align-items-end px-4 pb-4 text-navbar">
+					<div class="col-auto">
+						<select name="field_name" class="form-control navbar-benchmark">
+						<option value="" disabled selected>Select your favorite field</option>
+						<% @field_names.each do |field_name| %>
+							<option><%= field_name %></option>
+						<% end %>
+						</select>
+					</div>
+					<div class="form-row align-items-center px-4">
+						<select name="process_name" class="form-control navbar-benchmark">
+						<option value="" disabled selected>Select your favorites process</option>
+						<% @process_names.each do |process_name| %>
+							<option><%= process_name %></option>
+						<% end %>
+						</select>
+					</div>
+
+					<div class="col-auto">
+					<button type="submit" class="btn btn-primary align-bottom py-1 px-4 br-3" id="launch-benchmark-dashboard">Add process</button>
+					</div>
+				</div>
+	  		<%# </form> %>
+
+			<div class="align-bottom">
+				<% current_user.find_liked_items.each do |typology| %>
+					<div class="btn align-bottom py-1 px-4 br-3" id="add-process">
+						<% if typology.class == Typology %>
+							<%= typology.process_name %>
+							<%# <%= link_to like_typology_path(typology), class: "" do %>
+								<%= link_to unlike_typology_path(typology), method: :put do %>
+									x
+								<% end %>
+						<% end %>
+					</div>
+				<% end %>
+			</div>
+
+	    <div class="d-flex flex-row align-items-middle">
+	      <div class="d-inline"><i class="fas fa-bookmark p-2"></i></div>
+	      <div class="d-inline"><h3>My favorites articles</h3></div>
+	    </div>
+
+	    <div class="perso-cards__container">
+	      <% current_user.find_liked_items.each do |article| %>
+	        <% if article.class == Article %>
+	          <div class="articles bg-light">
+	            <%= link_to article_path(article), class: "" do %>
+	              <div class="card_article">
+	                <div class="art_img">
+	                 <p class="title"><%= article.title %></p>
+	                </div>
+	                <div class="card_icons">
+	                  <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
+	                  <%= link_to unlike_article_path(article), method: :put do %>
+	                    <i class="fas fa-trash-alt"></i> Remove from favorites
+	                  <% end %>
+	                </div>
+	              </div>
+	            <% end %>
+	          </div>
+	        <% end %>
+	      <% end %>
+	    </div>
+
+	    <div class="d-flex flex-row align-items-center">
+	      <div class="d-inline"><i class="fas fa-book-open"></i></div>
+	      <div class="d-inline p-2"><h3>Latest news</h3></div>
+	      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
+	    </div>
+	    <div class="perso-cards__container">
+	      <% @articles.each do |article| %>
+	        <div class="articles">
+	          <%= link_to article_path(article), class: "" do %>
+	            <div class="card_article">
+	              <div class="art_img" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
+	                <p class="title"><%= article.title %></p>
+	              </div>
+	              <div class="card_icons">
+	                <%= image_tag "share.png", alt: "bookmark", :class => "card_icons_size" %>
+	                <% if current_user.find_liked_items.include?(article) %>
+	                  <%= link_to unlike_article_path(article), method: :put do %>
+	                    <i class="fas fa-trash-alt"></i> Remove from favorites
+	                  <% end %>
+	                <% else %>
+	                  <%= link_to like_article_path(article), method: :put do %>
+	                    <i class="far fa-bookmark"></i> Add to favorites
+	                  <% end %>
+	                <% end %>
+	              </div>
+	            </div>
+	          <% end %>
+	        </div>
+	      <% end %>
+	    </div>
+	  </div>
+	</div>
 </div>
