@@ -37,7 +37,7 @@ a.article_link {
   padding: 10px;
   font-family: $headers-font;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 .author {
   text-transform: capitalize;
@@ -45,9 +45,6 @@ a.article_link {
   font-size: .9em;
   color: $picotee-blue;
   font-weight: 100;
-}
-.card-content {
-  height: 150px;
 }
 #favorite {
   text-decoration: none;
