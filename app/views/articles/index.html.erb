@@ -1,15 +1,19 @@
 <% content_for(:html_title) { 'Latest news about customer experience | UX-Comparator' } %>
 
 <div class="container">
-<h1>What's new?</h1>
-	<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
+  <div class="row pt-3">
+    <div class="col">
+      <h1 class='main-title'>What's new?</h1>
+    </div>
+  </div>
+	<%= simple_form_for :filter, url: articles_path, method: :get, html: { class: "article-search-form" } do |f| %>
 		<div class="row">
 				<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
 				-->
 			<div class="col-4">
 				<%= f.input :field, collection: Field.all.pluck(:name), label: false, prompt: "Select your field" %>
 			</div>
-			<div class="col-4">
+			<div class="col-4 pl-0">
 				<%= f.submit "Filter", class:"buttons" %>
 			</div>
 	</div>
