@@ -8,7 +8,6 @@
 }
 #dashboard-title {
   color: white;
-  padding: 10px;
   font-family: $headers-font;
   font-weight: bold;
   font-size: 1.4em;
@@ -16,4 +15,37 @@
 }
 .dashboard-art-cards {
   display: flex;
+}
+
+.dash-card-article {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  width: 280px;
+  height: 436px;
+  background-color: white;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.dash-icons {
+  justify-content: flex-end;
+}
+.dash-content {
+  background-color: white;
+  color: $picotee-blue;
+  position: absolute;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+    p {
+      font-size: .8em;
+  }
+}
+#dash-content-sm {
+    width: 200px;
 }

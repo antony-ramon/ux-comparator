@@ -16,10 +16,10 @@
   justify-content: space-around;
   background-color: $celeste;
   border: 1px solid $picotee-blue;
-  width: 250px;
+  // width: 250px;
   border-radius: 20px;
-  font-size: 1em;
-  padding: 10px 5px 10px 5px;
+  font-size: .8em;
+  padding: 5px;
   color: $picotee-blue;
   font-family: $headers-font;
     p {
@@ -38,25 +38,25 @@
 //GESTION DES IMAGES UNDRAW SUR LES CARDS BENCHMARK
 .banking {
   background-image: url(banking.png);
-  height: 200px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .mobility {
   background-image: url(mobility.png);
-  height: 200px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .Telecom {
   background-image: url(telecom.png);
-  height: 200px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 .e-commerce {
   background-image: url(e-commerce.png);
-  height: 200px;
+  height: 150px;
   background-size: contain;
   background-repeat: no-repeat;
 }
