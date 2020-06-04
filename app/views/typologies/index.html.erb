@@ -33,7 +33,16 @@
         <tr>
           <th class="align-middle"></th>
           <% @companies.each do |company| %>
+
+            <% if current_user.company == company.name %>
+            <th id="user-company-title">
+            <div id="user-company">
+              <%= company.name %>
+            </div>
+            </th>
+            <% else %>
             <th class="align-middle"><%= company.name %></th>
+            <% end %>
           <% end %>
         </tr>
         <% @typologies.each do |typology| %>
