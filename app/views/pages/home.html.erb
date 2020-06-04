@@ -2,7 +2,10 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= asset_path 'banner1.jpg'%>)">
 	<%=  image_tag("logo_tagline_white.png", alt: "Edit Entry") %>
-	<%= link_to "Join us", dashboard_path, class: 'btn' %>
+  <%= link_to dashboard_path do %>
+    <button type="button" class="btn btn-primary py-0" style="height:40px;">My dashboard</button>
+  <% end %>
+
 </div>
 
 <div class="container">
@@ -11,7 +14,7 @@
       <div class="icons-container">
         <div class="icon">
           <%=  image_tag("speed.png", alt: "Edit Entry") %>
-          <p>Gain in performance</p>
+          <p>Improve your KPIs</p>
         </div>
           <div class="icon">
           <%=  image_tag("up.png", alt: "Edit Entry") %>
@@ -23,7 +26,7 @@
         </div>
           <div class="icon">
           <%=  image_tag("sport-team.png", alt: "Edit Entry") %>
-          <p>Get technical skills</p>
+          <p>Work with your team</p>
         </div>
       </div>
     </div>
@@ -33,11 +36,11 @@
       <h3 class='home-subtitle mb-4 text-center'>They jumped the gun</h3>
       <div class="perso-cards__container mb-5">
         <div class="perso-cards mx-1">
-          <%=  image_tag("portrait1.jpg", alt: "Edit Entry") %>
+          <%=  image_tag("charles.jpg", alt: "Edit Entry") %>
           <div class="text">
-            <h4>Jennifer, 32 ans</h4>
-            <h5>Product Manager chez Etsy</h5>
-            <p>'UX Comparator changed my life! With the diversity of resources, I was able to grow my small business in just a few clicks.'</p>
+            <h4>Charles, 29 ans</h4>
+            <h5>CEO chez Millesime Manager</h5>
+            <p>'UX Comparator changed my life! With the diversity of resources, I was able to quickly compare my company's UX to my competitors' and becoming #1 on the wine market.'</p>
           </div>
         </div>
         <div class="perso-cards mx-1">
@@ -45,7 +48,7 @@
           <div class="text">
             <h4>Charles-Henri, 27 ans</h4>
             <h5>CEO chez FrenchyWeb</h5>
-            <p>'Thanks to UX Comparator and some personalized advice, we've doubled our customer base. Result: I got a promotion!'</p>
+            <p>'Thanks to UX Comparator, we identified pain points on our subscription process and doubled our customer base.'</p>
           </div>
         </div>
         <div class="perso-cards mx-1">
@@ -53,7 +56,7 @@
           <div class="text">
             <h4>Charles, 47 ans</h4>
             <h5>Directeur chez Karma</h5>
-            <p>'With the advent of the internet and the various digital tools, I felt overwhelmed. Thanks to UX Comparator, I managed to meet new opportunities!'</p>
+            <p>'Thanks to UX Comparator, I managed to get up-to-date on UX's best practices and improve my customers' satisfaction.'</p>
           </div>
         </div>
       </div>
