@@ -1,22 +1,37 @@
-<div class="article-banner">
-    <div class="article_img">
-      <% if @article.photo.attached? %>
-        <%= cl_image_tag @article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
-      <% else %>
-        <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
-      <% end %>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col col-md-2">
+      <div class='py-2'>
+        <%= link_to articles_path, class: "article-back-button" do %>
+          <i class="fas fa-arrow-left mr-3"></i><span>See other articles</span>
+        <% end %>
+      </div>
+
+      <div class='py-2'>
+        <% if current_user.find_liked_items.include?(@article) %>
+          <%= link_to unlike_article_path(@article), method: :put, class: 'btn btn-light btn-sm w-100 mr-2' do %>
+            <i class="fas fa-bookmark p-0 mr-1"></i><span class="text-color-brand">Favorited</span>
+          <% end %>
+        <% else %>
+          <%= link_to like_article_path(@article), method: :put, class: 'btn btn-brand btn-sm w-100 mr-2' do %>
+            <i class="far fa-bookmark p-0 mr-1"></i><span class=""> Add to favorite</span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-    <div class="content-container">
+    <div class="col col-md-8">
+      <% if @article.photo.attached? %>
+        <%= cl_image_tag @article.photo.key, crop: :fill, class: "article-picture"%>
+      <% else %>
+        <%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, class:"article-picture"%>
+      <% end %>
       <div class="article_info">
         <h1 class="art_title"><%= @article.title %></h1>
         <p class="art_author">By <%= @article.author %></p>
       </div>
-      <div>
-        <p class="paragraph">
-         <%= @article.content %>
-        </p>
-        <%= link_to 'Edit this article', edit_article_path, class: "buttons" %>
-        <%= link_to 'See other articles', articles_path, class: "buttons" %>
-    </div> 
+      <div class="pb-5">
+        <p class="paragraph article-paragraph"><%= @article.content %></p>
+      </div>
     </div>
+  </div>
 </div>

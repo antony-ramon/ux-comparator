@@ -30,13 +30,14 @@ h1 {
 	font-size: 1em;
   text-align: center;
   font-weight: bold;
-  width: 600px;
 }
 .art_title {
    text-align: center;
    font-size: 1.4em;
    font-weight: bold;
-   width: 600px;
+   font-size: 2.5em;
+  letter-spacing: -0.017em;
+  font-weight: 900;
 }
 
 .display_article{
@@ -45,7 +46,6 @@ display:block !important;
 
 .paragraph{
   margin-top: 30px;
-  width:600px;
 }
 
 .article_img{
@@ -53,4 +53,24 @@ display:block !important;
 }
 .paragraph {
   color: #6A6A6A;
+}
+
+.article-picture {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.article-paragraph {
+  font-family: $article-content;
+  letter-spacing: 0.049;
+  font-size: 20px;
+  color: $gray-800;
+  line-height: 40px;
+  font-weight: 400;
+}
+
+.article-back-button {
+  font-size: 14px;
+  font-weight: 400;
 }

@@ -8,7 +8,7 @@
   font-weight: lighter;
   background: #D9FEFF;
   transition: background 0.3s ease;
-  border: 1px solid #28288D;
+  border: 1px solid $picotee_blue;
   font-family: $headers-font;
 }
 .buttons-i {
@@ -21,11 +21,30 @@
   font-weight: lighter;
   background: #D9FEFF;
   transition: background 0.3s ease;
-  border: 1px solid #28288D;
+  border: 1px solid $picotee_blue;
 }
 
 a.navbar-login-button {
   font-weight: 800;
   color: $picotee_blue;
   text-decoration: none;
+}
+
+.btn-brand {
+  color: #fff;
+  background-color: $picotee_blue;
+  border-color: $picotee_blue;
+}
+
+.btn-brand:hover {
+  color: $gray-200;
+}
+
+.btn-brand-bordered {
+  border-radius: 4px;
+  background: #D9FEFF;
+  transition: background 0.3s ease;
+  border: 1px solid $picotee_blue;
+  color: $picotee_blue;
+  font-family: $headers-font;
 }
