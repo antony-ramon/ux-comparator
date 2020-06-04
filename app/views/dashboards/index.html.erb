@@ -159,6 +159,11 @@
               <% @count_favorite_typologies += 1 %>
               <div class="">
                 <%= link_to article_path(article), class: "" do %>
+                  <% if article.photo.attached? %>
+		                <div class="dash-card-article" style="background-image:url(<%= cl_image_path article.photo.key %>);">
+                  <% else %>
+                    <div class="dash-card-article" style="background-image:url(<%= image_path 'filler_picture.jpg' %>);">
+                  <% end %>
                   <div class="dash-card-article">
                     <div class="dash-content" id="dash-content-sm">
                       <p class="title"><%= article.title %></p>
@@ -186,8 +191,42 @@
                 <button type="button" class="btn btn-secondary py-0" style="height:30px;">Check all articles</button>
               <% end %>
             </div>
-          </div>
-        <% end %>
+            
+	    <div class="col-lg-3">
+		    <div class="d-flex flex-row align-items-center">
+		      <div class="d-inline"><i class="fas fa-book-open"></i></div>
+		      <div class="d-inline p-2"><h3>Latest news</h3></div>
+		      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
+		    </div>
+		    <div class="art-cards__container">
+		      <% @articles.last(2).each do |article| %>
+		          <%= link_to article_path(article), class: "" do %>
+                <% if article.photo.attached? %>
+		              <div class="dash-card-article" style="background-image:url(<%= cl_image_path article.photo.key %>);">
+								<% else %>
+                  <div class="dash-card-article" style="background-image:url(<%= image_path "filler_picture.jpg" %>);">
+                <% end %>
+                  <div class="dash-content">
+		              	<p class="title"><%= article.title %></p>
+		              	<p><%= article.content.first(200)%>...</p>
+			              <div class="card_icons dash-icons">
+			                <% if current_user.find_liked_items.include?(article) %>
+			                  <%= link_to unlike_article_path(article), method: :put do %>
+			                    <i class="fas fa-trash-alt"></i>
+			                  <% end %>
+			                <% else %>
+			                  <%= link_to like_article_path(article), method: :put do %>
+			                    <i class="far fa-bookmark"></i>
+			                  <% end %>
+			                <% end %>
+			              </div>
+									</div>
+		             </div>
+		          <% end %>
+		        </div>
+		      <% end %>
+		    </div>
+	    </div>
       </div>
     </div>
 

@@ -1,9 +1,9 @@
 .perso-cards p, h4, h5 {
 	color: $picotee_blue;
 }
-.row {
-	margin-top: 3em;
-}
+// .row {
+// 	margin-top: 3em;
+// }
 .perso-cards__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -15,9 +15,9 @@
 }
 .perso-cards {
 	padding: 20px;
-	margin: 20px;
+	// margin: 20px;
 	background: #FFFFFF;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
 	border-radius: 10px;
 	height: 500px;
 	max-width: 100%;
@@ -37,16 +37,18 @@
 }
 .perso-cards p {
 	font-size: .8em;
-	max-width: 80%;
+  text-align: justify;
+  font-style: italic;
 }
 .perso-cards h4 {
 	font-size: 1em;
-	font-weight: bold;
+	font-weight: 800;
+  margin-bottom: 5px;
 }
 .perso-cards h5 {
 	font-size: .8em;
 	font-weight: bold;
-	margin-top: -10px;
+	margin-bottom: 20px;
 }
 
 .text {

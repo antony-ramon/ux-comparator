@@ -23,3 +23,9 @@
   transition: background 0.3s ease;
   border: 1px solid #28288D;
 }
+
+a.navbar-login-button {
+  font-weight: 800;
+  color: $picotee_blue;
+  text-decoration: none;
+}
