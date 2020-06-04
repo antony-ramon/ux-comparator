@@ -1,22 +1,46 @@
-<!-- <h1>coucou</h1>
-
-
-<#% @typologies.each do |typology| %>
-  <#% typology.companies.each do |company| %>
-<div><div class="item_bench"><#%= company.name %></div>
- <div class="item_bench"><#%= typology.title %></div>
- </div>
-<#% end %>
-<#% end %>
-
- -->
 <% content_for(:html_title) { 'Benchmark | UX-Comparator' } %>
 
-<%if params[:field_name].nil? || params[:process_name].nil? %>
+<%if params[:field_name].nil? || params[:process_name].nil? || params[:field_name] == "" || params[:process_name] == "" %>
   <div class="text-center m-4 p-4">
     <h3>Get started!</h3>
-    <h4>Create your first benchmark by filling the two fileds of the form above ☝️</h4>
+    <h4>Create your first benchmark by filling the two fileds of the form 😎</h4>
   </div>
+
+  <div class="d-flex container justify-content-center">
+    <form action="/typologies" method="get">
+      <div class="d-flex flex-row align-items-end">
+        <div class="form-row text-navbar mr-3">
+          <div class="col-auto">
+            <!-- <div><label for="field_name">Choose a field...</label></div> -->
+            <div>
+              <select name="field_name" class="js-example-responsive select2 mx-2" data-placeholder="Field">
+                <option></option>
+                <% @field_names.each do |field_name| %>
+                  <option value="<%= field_name %>"><%= field_name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-row text-navbar mr-3">
+          <div class="col-auto">
+            <!-- <div><label for="process_name">... and a process</label></div> -->
+            <div>
+              <select name="process_name" class="js-example-responsive select2 mx-2" data-placeholder="Process">
+                <option></option>
+                <% @process_names.each do |process_name| %>
+                  <option value="<%= process_name %>"><%= process_name %></option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary py-0" style="height:30px;" id="launch-benchmark">Launch benchmark</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
 <% else %>
 
   <% @field = Field.find_by(name: params[:field_name]) %>
@@ -46,4 +70,9 @@
         <% end %>
     </table>
   </div>
+
+    <div class="container p-1">
+      <p class="text-center"><em>This benchmark was created with data collected by the UX-Comparator team</em></p>
+    </div>
+
 <% end %>

@@ -6,6 +6,8 @@ class TypologiesController < ApplicationController
     # @field = field_002
     # @process_name = "Subscription"
     @typologies = policy_scope(Typology).where(process_name: @process_name)
+    @field_names = Field.pluck(:name)
+    @process_names = Typology.pluck(:process_name).uniq
   end
 
   def like
