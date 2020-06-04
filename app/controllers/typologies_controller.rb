@@ -22,5 +22,6 @@ class TypologiesController < ApplicationController
     authorize @typology
     @typologies = Typology.where(process_name: @typology.process_name, field: @typology.field)
     @typology.unliked_by current_user
+    redirect_to dashboard_path
   end
 end
