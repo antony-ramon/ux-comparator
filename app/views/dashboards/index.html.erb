@@ -116,7 +116,11 @@
 		        <% if article.class == Article %>
 		          <div class="">
 		            <%= link_to article_path(article), class: "" do %>
+                  <% if article.photo.attached? %>
 		                <div class="dash-card-article" style="background-image:url(<%= cl_image_path article.photo.key %>);">
+                  <% else %>
+                    <div class="dash-card-article" style="background-image:url(<%= image_path 'filler_picture.jpg' %>);">
+                  <% end %>
 			                <div class="dash-content" id="dash-content-sm">
 				                <p class="title"><%= article.title %></p>
 				                <p><%= article.content.first(200)%>...</p>
@@ -144,8 +148,12 @@
 		    <div class="art-cards__container">
 		      <% @articles.last(2).each do |article| %>
 		          <%= link_to article_path(article), class: "" do %>
-		            <div class="dash-card-article" style="background-image:url(<%= cl_image_path article.photo.key %>);">
-									<div class="dash-content">
+                <% if article.photo.attached? %>
+		              <div class="dash-card-article" style="background-image:url(<%= cl_image_path article.photo.key %>);">
+								<% else %>
+                  <div class="dash-card-article" style="background-image:url(<%= image_path "filler_picture.jpg" %>);">
+                <% end %>
+                  <div class="dash-content">
 		              	<p class="title"><%= article.title %></p>
 		              	<p><%= article.content.first(200)%>...</p>
 			              <div class="card_icons dash-icons">
