@@ -89,7 +89,7 @@
           <% @count_favorite_articles = 0 %>
           <% current_user.find_liked_items.each do |article| %>
             <% if article.class == Article %>
-              <% @count_favorite_typologies += 1 %>
+              <% @count_favorite_articles += 1 %>
               <div class="">
                 <%= link_to article_path(article), class: "" do %>
                   <% if article.photo.attached? %>
@@ -131,11 +131,11 @@
     </div>
 
     <div class="col-lg-3">
-	    <div class="d-flex flex-row align-items-center">
+	    <div class="d-flex align-items-center">
 	      <div class="d-inline"><i class="fas fa-book-open"></i></div>
-	      <div class="d-inline p-2"><h3>Latest news</h3></div>
-	      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
+	      <div class="d-inline p-2"><h3> Latest news</h3></div>
 	    </div>
+	      <div class="see-all"><%= link_to " (see all articles)", articles_path %></div>
 	    <div class="art-cards__container">
 	      <% @articles.last(2).each do |article| %>
 	          <%= link_to article_path(article), class: "" do %>
@@ -146,18 +146,12 @@
               <% end %>
                 <div class="dash-content">
 	              	<p class="title"><%= article.title %></p>
-	              	<p><%= article.content.first(200)%>...</p>
-		              <div class="card_icons dash-icons">
-		                <% if current_user.find_liked_items.include?(article) %>
-		                  <%= link_to unlike_article_path(article), method: :put do %>
-		                    <i class="fas fa-trash-alt"></i>
-		                  <% end %>
-		                <% else %>
-		                  <%= link_to like_article_path(article), method: :put do %>
-		                    <i class="far fa-bookmark"></i>
-		                  <% end %>
-		                <% end %>
-		              </div>
+	              	<p><%= article.content.first(150)%>...</p>
+		              <%= link_to article_path(article) do %>
+                  <div class="btn btn-outline-primary mb-2">
+                    <p class="mb-0">Read more</p>
+                  </div>
+                  <% end %>
 								</div>
 	             </div>
 	          <% end %>
@@ -166,38 +160,5 @@
 	    </div>
     </div>
   </div>
-
- <!--    <div class="col-lg-3">
-      <div class="d-flex flex-row align-items-center">
-        <div class="d-inline"><i class="fas fa-book-open"></i></div>
-        <div class="d-inline p-2"><h3>Latest news</h3></div>
-        <div class="d-inline"><%#= link_to " (see all articles)", articles_path %></div>
-      </div>
-      <div class="art-cards__container">
-        <%# @articles.last(2).each do |article| %>
-            <%#= link_to article_path(article), class: "" do %>
-              <div class="dash-card-article">
-                <div class="dash-content">
-                  <p class="title"><%#= article.title %></p>
-                  <p><%#= article.content.first(200)%>...</p>
-                  <div class="card_icons dash-icons">
-                    <%# if current_user.find_liked_items.include?(article) %>
-                      <%#= link_to unlike_article_path(article), method: :put do %>
-                        <i class="fas fa-trash-alt"></i>
-                      <%# end %>
-                    <%# else %>
-                      <%#= link_to like_article_path(article), method: :put do %>
-                        <i class="far fa-bookmark"></i>
-                      <%# end %>
-                    <%# end %>
-                  </div>
-                </div>
-              </div>
-            <%# end %>
-          </div>
-        <%# end %>
-      </div>
-    </div> -->
-
 </div>
 

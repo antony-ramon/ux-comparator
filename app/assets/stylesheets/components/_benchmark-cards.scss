@@ -1,26 +1,26 @@
 .bench-cards__container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
 .card_benchmark {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: $box-shadow;
   margin-bottom: 20px;
   overflow: hidden;
-  border-radius: 22px;
+  border-radius: $border-radius;
   padding: 10px;
 }
 .bench_button {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: $celeste;
-  border: 1px solid $picotee-blue;
+  background-color: $light-gray;
+  // border: 1px solid $picotee-blue;
   // width: 250px;
   border-radius: 20px;
   font-size: .8em;
   padding: 5px;
-  color: $picotee-blue;
+  color: $purple;
   font-family: $headers-font;
     p {
       margin-bottom: 0;
