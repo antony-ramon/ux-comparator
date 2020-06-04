@@ -4,6 +4,26 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
+  .error-container {
+    width: 60%;
+    text-align: center;
+    font-family: arial, sans-serif;
+    border: 2px solid grey;
+    margin: 40px auto;
+    background-color: rgba(50, 50, 50, 0.17);
+  }
+
+  img {
+  width: 70%;
+  padding: 20px;
+  }
+
+  a {
+  text-decoration: none;
+  color: black;
+  }
+
   .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
@@ -54,13 +74,19 @@
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
+<body>
+  <!-- This file lives in public/404.html -->
+  <div class="error-container">
+  <a href="http://www.ux-comparator.com">
     <div>
-      <h1>We're sorry, but something went wrong.</h1>
+      <img src="logo_tagline_black.png" alt="UX-Comparator">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div>
+      <h1>Oups, something didn't go right.</h1>
+      <p>That's on us. We'll investigate that as soon as possible, and we're very sorry for the inconvenience.</p>
+    </div>
+    <p>Please give it another shot at http://www.ux-comparator.com</p>
   </div>
+  </a>
 </body>
 </html>
