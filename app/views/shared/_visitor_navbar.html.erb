@@ -1,9 +1,9 @@
 <div class="navbar">
-	<%= link_to "#", class: "navbar-brand" do %>
+	<%= link_to root_path, class: "navbar-brand" do %>
 		<%= image_tag "logo_black.png" %>
 	<% end %>
 	<div class="navbar-buttons">
-		<%= link_to "login", new_user_session_path, class: "nav-link" %>
+		<%= link_to "login", new_user_session_path, class: "nav-link buttons navbar-login-button" %>
 	</div>
 </div>
 
