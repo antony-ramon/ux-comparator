@@ -81,30 +81,59 @@
 	      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
 	    </div>
 
-
-			<div class="bench-cards__container">
+			<!-- <div class="bench-cards__container"> -->
+        <% @count_favorite_benchmarks = 0 %>
 				<% current_user.find_liked_items.each do |typology| %>
-						<% if typology.class == Typology %>
-							<div class="">
-								<%= link_to typologies_path(params:{field_name:typology.field.name, process_name:typology.process_name}), class: "" do %>
-									<div class="card_benchmark">
-										<div class="bench_img">
-											<p class="bench-field-title"><%= typology.field.name %></p>
-											<p class="bench-process-title"><%= typology.process_name %></p>
-										</div>
-
-										<div class="bench-card-icons">
-											<%= link_to unlike_typology_path(typology), method: :put do %>
-											<i class="fas fa-trash-alt"></i> Remove from favorites
-											<% end %>
-										</div>
+					<% if typology.class == Typology %>
+            <% @count_favorite_benchmarks +=1 %>
+						<div class="">
+							<%= link_to typologies_path(params:{field_name:typology.field.name, process_name:typology.process_name}), class: "" do %>
+								<div class="card_benchmark">
+									<div class="bench_img">
+										<p class="bench-field-title"><%= typology.field.name %></p>
+										<p class="bench-process-title"><%= typology.process_name %></p>
 									</div>
-								<% end %>
-							</div>
-						<% end %>
 
+									<div class="bench-card-icons">
+										<%= link_to unlike_typology_path(typology), method: :put do %>
+										<i class="fas fa-trash-alt"></i> Remove from favorites
+										<% end %>
+									</div>
+								</div>
+							<% end %>
+						</div>
+					<% end %>
 				<% end %>
-			</div>
+        <% if @count_favorite_benchmarks == 0 %>
+          <div class="container p-4">
+            <h5>No favorite benchmarks yet. Get started here! 😎</h5>
+          </div>
+          <div class="container pb-4 mb-4">
+            <form action="/typologies" method="get">
+              <div class="d-flex flex-row">
+                <div class="form-row align-items-end px-3  py-2 text-navbar">
+                  <select name="field_name" class="js-example-responsive select2 mx-2">
+                    <% @field_names.each do |field_name| %>
+                      <option value="<%= field_name %>"><%= field_name %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="form-row align-items-end px-3 py-2 text-navbar">
+                  <select name="process_name" class="js-example-responsive select2 mx-2">
+                    <% @process_names.each do |process_name| %>
+                      <option value="<%= process_name %>"><%= process_name %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary br-3 h-75 mx-4 launch-benchmark">Launch benchmark</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        <% end %>
+			<!-- </div> -->
 
 
 	    <div class="d-flex flex-row align-items-middle">
@@ -113,8 +142,10 @@
 	    </div>
 
 	    <div class="perso-cards__container">
+        <% @count_favorite_articles = 0 %>
 	      <% current_user.find_liked_items.each do |article| %>
 	        <% if article.class == Article %>
+            <% @count_favorite_articles +=1  %>
 	          <div class="articles">
 	            <%= link_to article_path(article), class: "" do %>
 	              <div class="card_article">
@@ -133,8 +164,20 @@
 	        <% end %>
 	      <% end %>
 	    </div>
+      <% if @count_favorite_articles == 0 %>
+        <div class="d-flex flex-row">
+          <div class="container p-4">
+            <h5>No favorite articles yet.</h5>
+          </div>
+          <div class="container mb-4 ml-4">
+            <%= link_to articles_path, class: "navbar-brand" do %>
+              <button type="button" class="btn btn-primary br-3 h-75 mx-4 launch-benchmark">Check all articles</button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
-	    <div class="d-flex flex-row align-items-center">
+	    <div class="d-flex flex-row align-items-center mt-4 pt-4">
 	      <div class="d-inline"><i class="fas fa-book-open"></i></div>
 	      <div class="d-inline p-2"><h3>Latest news</h3></div>
 	      <div class="d-inline"><%= link_to " (see all articles)", articles_path %></div>
