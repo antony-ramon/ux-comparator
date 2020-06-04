@@ -24,21 +24,21 @@ a {
   object-fit: contain;
   margin-bottom: 50px;
 }
-.banner a {
-  font-size: .9em;
-  width: 150px;
-  font-weight: 800;
-	padding: 10px;
-	text-align: center;
-	text-decoration: none;
-  border-radius: 4px;
-  background: $celeste;
-  transition: background 0.3s ease;
-  	&:hover{
-    	background: $picotee_blue;
-    	color: #fff;
-  	}
-}
+// .banner a {
+//   font-size: .9em;
+//   width: 150px;
+//   font-weight: 800;
+// 	padding: 10px;
+// 	text-align: center;
+// 	text-decoration: none;
+//   border-radius: 4px;
+//   background: $celeste;
+//   transition: background 0.3s ease;
+//   	&:hover{
+//     	background: $picotee_blue;
+//     	color: #fff;
+//   	}
+// }
 .content-wrapper {
   background-color: #fff;
 }
