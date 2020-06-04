@@ -42,3 +42,17 @@
     color: white !important;
   }
 }
+
+#user-company {
+  background-color: $celeste;
+  color:$picotee_blue;
+  border-radius: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-company-title {
+  padding: 0;
+}
