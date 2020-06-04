@@ -18,9 +18,6 @@
   height: 100vh;
 }
 
-.item{
-}
-
 .benchmark-table {
   height: 70vh;
 }
@@ -32,9 +29,30 @@
 
 #bookmark .btn-success:hover .fa-plus-circle {
     color: white;
-    transition: color 0.15s ease-in-out;
 }
 
 #share_button {
   display: inline-block;
+  font-family: 'Lato', "sans-serif";
+  font-size: 14px;
+  &:hover {
+    i {
+      color:white !important;
+    }
+    color: white !important;
+  }
+}
+
+#user-company {
+  background-color: $celeste;
+  color:$picotee_blue;
+  border-radius: 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#user-company-title {
+  padding: 0;
 }
