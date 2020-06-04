@@ -14,22 +14,34 @@
     </div>
 
         <form action="/typologies" method="get">
-          <div class="d-flex flex-row">
-            <div class="form-row align-items-end px-3  py-2 text-navbar">
-              <select name="field_name" class="js-example-responsive select2 mx-2">
-                <% @field_names.each do |field_name| %>
-                  <option value="<%= field_name %>"><%= field_name %></option>
-                <% end %>
-              </select>
+          <div class="d-flex flex-row align-items-end">
+            <div class="form-row text-navbar mr-3">
+              <div class="col-auto">
+                <!-- <div><label for="field_name">Choose a field...</label></div> -->
+                <div>
+                  <select name="field_name" class="js-example-responsive select2 mx-2" data-placeholder="Select a field">
+                    <option></option>
+                    <% @field_names.each do |field_name| %>
+                      <option value="<%= field_name %>"><%= field_name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div class="form-row align-items-end px-3 py-2 text-navbar">
-              <select name="process_name" class="js-example-responsive select2 mx-2">
-                <% @process_names.each do |process_name| %>
-                  <option value="<%= process_name %>"><%= process_name %></option>
-                <% end %>
-              </select>
-              <button type="submit" class="btn btn-primary br-3 h-75 mx-4" id="launch-benchmark">Launch benchmark</button>
+            <div class="form-row text-navbar mr-3">
+              <div class="col-auto">
+                <!-- <div><label for="process_name">... and a process</label></div> -->
+                <div>
+                  <select name="process_name" class="js-example-responsive select2 mx-2" data-placeholder="Select a process">
+                    <option></option>
+                    <% @process_names.each do |process_name| %>
+                      <option value="<%= process_name %>"><%= process_name %></option>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
             </div>
+            <button type="submit" class="btn btn-primary py-0" style="height:30px;" id="launch-benchmark">Launch benchmark</button>
           </div>
         </form>
 
