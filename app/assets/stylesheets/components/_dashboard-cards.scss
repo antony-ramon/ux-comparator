@@ -18,11 +18,10 @@
 }
 
 .dash-card-article {
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: $box-shadow;
   margin-bottom: 20px;
   overflow: hidden;
-  border-radius: 20px;
-  width: 280px;
+  border-radius: $border-radius;
   height: 436px;
   background-color: white;
   background-size: 100% 50%;
@@ -38,10 +37,14 @@
   background-color: white;
   color: $picotee-blue;
   position: absolute;
-  width: 50%;
-  padding: 10px;
+  width: 75%;
+  padding: 15px 25px;
   text-align: center;
   border-radius: 6px;
+
+    .title {
+      font-size: 1.2em;
+    }
     p {
       font-size: .8em;
   }
@@ -49,3 +52,8 @@
 #dash-content-sm {
     width: 200px;
 }
+
+.see-all a {
+  padding: 0;
+}
+
