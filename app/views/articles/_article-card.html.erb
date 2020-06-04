@@ -1,26 +1,30 @@
-<%= link_to article_path(article), class: "article" do %>
-	<div class="card_article" id="article">
+<%#= link_to article_path(article), class: "article" do %>
+	<div class="card_article" >
 		<% if article.photo.attached? %>
-			<%= cl_image_tag article.photo.key, crop: :fill, style: "width: 100%", class:"align-middle"%>
+			<%= cl_image_tag article.photo.key, crop: :fill, class:"align-middle"%>
 		<% else %>
-			<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, style: "height:400px; width: auto", class:"align-middle"%>
+			<%= image_tag "filler_picture.jpg", alt: "alttext", crop: :fill, class:"align-middle"%>
 		<% end %>
-		<div class="p-2 card-content">
-			<p class="title"><%= article.title %></p>
-			<div class="d-flex justify-content-between align-items-center">
-				<p class="author m-0">By <%= article.author %></p>
-				<div class="card_icons">
+		<div class="card-content">
+			<p class="title"><%= article.title.truncate(48, omission: '...') %></p>
+      <p class="article-preview">
+        <%= article.content.truncate(210) %>
+      </p>
+			<div class="d-flex justify-content-between align-items-center pb-3">
+				<p class="author m-0 pb-0">By <%= article.author %></p>
+				<div class="article_card_icons">
 					<% if current_user.find_liked_items.include?(article) %>
-					   <%= link_to unlike_article_path(article), method: :put do %>
-				         <i class="fas fa-trash-alt buttons-i img-fluid"></i>
+					   <%= link_to unlike_article_path(article), method: :put, class: 'btn btn-light btn-sm mr-2' do %>
+				         <i class="fas fa-bookmark p-0 mr-1"></i><span class="text-color-brand">Favorited</span>
 					    <% end %>
 					<% else %>
-                       <%= link_to like_article_path(article), method: :put do %>
-						<i class="far fa-bookmark buttons-i" id="favorite"></i>
-				       <% end %>
+              <%= link_to like_article_path(article), method: :put, class: 'btn btn-light btn-sm mr-2' do %>
+						    <i class="far fa-bookmark p-0 mr-1 text-color-brand"></i><span class="text-color-brand"> Add to favorite</span>
+				      <% end %>
 					<% end %>
+          <%= link_to "Read more", article_path(article), class: 'btn btn-brand btn-sm px-4'  %>
 				</div>
 			</div>
 		</div>
 	</div>
-<% end %>
+<%# end %>

@@ -1,8 +1,8 @@
 .card_article {
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  // margin-bottom: 20px;
+  // overflow: hidden;
+  border-radius: 10px;
 }
 #first_article {
   margin-right: 100px;
@@ -16,10 +16,12 @@ a.article_link {
 .card_article img {
   height: 275px;
   color: white;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
   background-size: cover;
   display: flex;
   align-items: flex-end;
-  padding: .3em;
   object-fit: cover;
 }
 .card_icons {
@@ -34,11 +36,12 @@ a.article_link {
   margin-right: 20px;
 }
 .title, .author {
+  font-size: 1.3em;
+  font-weight: 800;
   color: black;
-  padding: 10px;
+  padding: 10px 0;
   font-family: $headers-font;
-  font-weight: bold;
-  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 .author {
   text-transform: capitalize;
@@ -52,4 +55,24 @@ a.article_link {
   color: $picotee_blue;
   font-size: .9em;
   padding-right: 5px;
+}
+
+.card_article .card-content {
+  padding: 0 20px
+}
+
+.article-preview {
+  font-size: 14px;
+  font-weight: 200;
+  color: $gray-600;
+  text-align: justify;
+}
+
+.card_article .author {
+  font-weight: 600;
+}
+
+.carousel-articles {
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }

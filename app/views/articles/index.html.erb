@@ -1,45 +1,58 @@
 <% content_for(:html_title) { 'Latest news about customer experience | UX-Comparator' } %>
 
 <div class="container">
-<h1>What's new?</h1>
-	<%= simple_form_for :filter, url: articles_path, method: :get do |f| %>
-		<div class="row">
-				<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
-				-->
-			<div class="col-4">
-				<%= f.input :field, collection: Field.all.pluck(:name), label: false, prompt: "Select your field" %>
-			</div>
-			<div class="col-4">
-				<%= f.submit "Filter", class:"buttons" %>
-			</div>
-	</div>
-<% end %>
-
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-  	<div class="carousel-item active">
-  		<%= render 'article-card', article: Article.first %>
-  	</div>
-    <% @articles.last(3).each do |article| %>
-    	<div class="carousel-item">
-					<%= render 'article-card', article: article %>
-			</div>
-		<% end %>
+  <div class="row pt-3">
+    <div class="col">
+      <h1 class='main-title'>What's new?</h1>
+    </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  <div class="row pb-4">
+    <div class="col">
+    	<%= simple_form_for :filter, url: articles_path, method: :get, html: { class: "article-search-form" } do |f| %>
+    		<div class="row">
+    				<!-- 	.pluck permet d'obtenir un array de "juste" la colonne qui t'interesse dans ces instances de filter
+    				-->
+    			<div class="col-4">
+    				<%= f.input :field, collection: Field.all.pluck(:name), label: false, prompt: "Select your field" %>
+    			</div>
+    			<div class="col-4 pl-0">
+    				<%= f.submit "Filter", class:"buttons" %>
+    			</div>
+    	  </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row pb-5">
+    <div class="col">
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner carousel-articles">
+          <div class="carousel-item active">
+            <%= render 'article-card', article: Article.first %>
+          </div>
+          <% @articles.last(3).each do |article| %>
+            <div class="carousel-item">
+                <%= render 'article-card', article: article %>
+            </div>
+          <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
 
 	<div class="row">
 		<% @articles.drop(1).each do |article| %>
-			<div class="col-6">
-					<%= render 'article-card', article: article %>
+			<div class="col-6 pb-4">
+				<%= render 'article-card', article: article %>
 			</div>
 			<% end %>
 	</div>
