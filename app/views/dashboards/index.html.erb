@@ -81,8 +81,7 @@
 		    <div class="d-flex flex-row align-items-middle">
 		      <div class="d-inline"><i class="fas fa-compress-alt p-2"></i></div>
 		      <div class="d-inline"><h3>My favorite benchmarks</h3></div>
-		    </div>
-
+          </div>
 
 				<div class="bench-cards__container">
 					<% current_user.find_liked_items.each do |typology| %>
@@ -171,6 +170,17 @@
 		      <% end %>
 		    </div>
 	    </div>
-
+      <% if @count_favorite_articles == 0 %>
+        <div class="d-flex flex-row">
+          <div class="container p-4">
+            <h5>No favorite articles yet.</h5>
+          </div>
+          <div class="container mb-4 ml-4">
+            <%= link_to articles_path, class: "navbar-brand" do %>
+              <button type="button" class="btn btn-primary br-3 h-75 mx-4 launch-benchmark">Check all articles</button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 	</div>
 </div>
