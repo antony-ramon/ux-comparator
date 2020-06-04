@@ -1,0 +1,62 @@
+.bench-cards__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.card_benchmark {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 10px;
+}
+.bench_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: $celeste;
+  border: 1px solid $picotee-blue;
+  width: 250px;
+  border-radius: 20px;
+  font-size: 1em;
+  padding: 10px 5px 10px 5px;
+  color: $picotee-blue;
+  font-family: $headers-font;
+    p {
+      margin-bottom: 0;
+    }
+}
+.bench-card-icons {
+  display: flex;
+  padding: 10px;
+  align-items: flex-end;
+}
+.bench_icons {
+  display: flex;
+  align-items: center;
+}
+//GESTION DES IMAGES UNDRAW SUR LES CARDS BENCHMARK
+.banking {
+  background-image: url(banking.png);
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.mobility {
+  background-image: url(mobility.png);
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.Telecom {
+  background-image: url(telecom.png);
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.e-commerce {
+  background-image: url(e-commerce.png);
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
