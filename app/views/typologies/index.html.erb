@@ -52,8 +52,11 @@
   <% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
   <% @companies = Company.where(field: @field) %>
 
-  <div id="bookmark">
-    <%= render 'bookmark', typologies: @typologies %>
+  <div class="container d-flex justify-content-end pt-4 text-right align-middle">
+    <%= render 'copy_url' %>
+    <div id="bookmark" class="mx-2">
+      <%= render 'bookmark', typologies: @typologies %>
+    </div>
   </div>
 
   <div class="container p-1">
@@ -84,6 +87,6 @@
     </table>
   </div>
     <div class="container p-1">
-      <p class="text-center"><em>This benchmark was created with data collected by the UX-Comparator team</em></p>
+      <p class="text-center" style="color: #28288D"><em>This benchmark was created with data collected by the UX-Comparator team</em></p>
     </div>
 <% end %>
