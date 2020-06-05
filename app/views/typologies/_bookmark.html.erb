@@ -5,29 +5,12 @@
 <% end %>
 
 
-
-
-
-
-<div class="container pt-4 text-right align-middle">
-
-  <div class="btn btn-success btn-sm" id="share_button">
-    <i class="fas fa-copy"></i> Copy the url of this page
-  <input id="copy" name="copy" type="hidden">
-  </div>
-
-
-  <% if liked_by_user > 0 %>
-
-    <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light", method: :put do %>
-      <i class="far fa-trash-alt"></i> Remove from favorites
-<!--       <i class="fas fa-bookmark"></i> This benchmark is in your favorites
- -->      <!-- <button type="button" class="btn btn-light btn-sm">(<i class="far fa-trash-alt"></i> remove)</button> -->
-    <% end %>
-  <% else %>
-    <%= link_to like_typology_path(typology), remote: true, class: "btn btn-success btn-sm", method: :put do %>
-      <i class="fas fa-plus-circle"></i> Add to favorites!
-    <% end %>
-
+<% if liked_by_user > 0 %>
+  <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light", style: "width: 200px; height:30px", method: :put do %>
+    <i class="far fa-trash-alt"></i> Remove from favorites
   <% end %>
-</div>
+<% else %>
+  <%= link_to like_typology_path(typology), remote: true, class: "btn btn-primary py-0", style: "width: 200px; height:30px", method: :put do %>
+    <i class="fas fa-plus-circle"></i> Add to favorites!
+  <% end %>
+<% end %>
