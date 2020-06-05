@@ -27,10 +27,12 @@
     <div class="col">
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner carousel-articles">
-          <div class="carousel-item active">
-            <%= render 'article-card', article: Article.first %>
-          </div>
-          <% @articles.last(3).each do |article| %>
+          <% @articles.last(1).each do |article| %>
+            <div class="carousel-item active">
+                <%= render 'article-card', article: article %>
+            </div>
+          <% end %>
+          <% @articles.last(3).drop(1).each do |article| %>
             <div class="carousel-item">
                 <%= render 'article-card', article: article %>
             </div>
