@@ -16,7 +16,7 @@
     				<%= f.input :field, collection: Field.all.pluck(:name), label: false, prompt: "Select your field" %>
     			</div>
     			<div class="col-4 pl-0">
-    				<%= f.submit "Filter", class:"buttons" %>
+    				<%= f.submit "Filter", class:"btn btn-primary py-2", style:"height: 40px; width: 120px;" %>
     			</div>
     	  </div>
       <% end %>
