@@ -99,7 +99,7 @@
                         <div class="dash-background__white" >
                           <p class="title"><%= article.title %></p>
                           <p><%= article.content.first(150)%>...</p>
-                          <%= link_to "Read more", article_path(article), class: 'btn btn-brand btn-sm px-4'  %>
+                          <%= link_to "Read more", article_path(article), class: 'btn btn-outline-primary sm' %>
                           <div class="dash-icons d-flex justify-content-center p-0 mr-1">
                             <%= link_to unlike_article_path(article), method: :put do %><i class="fas fa-bookmark p-0 mr-1"></i><span class="text-color-brand">Favorited</span>
                             <% end %>
@@ -129,7 +129,7 @@
     </div>
 
     <div class="col-lg-3">
-	    <div class="d-flex align-items-center">
+	    <div class="d-flex align-items-center pt-4">
 	      <div class="d-inline"><i class="fas fa-book-open"></i></div>
 	      <div class="d-inline p-2"><h3> Latest news</h3></div>
 	    </div>
