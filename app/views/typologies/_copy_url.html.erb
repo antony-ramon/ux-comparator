@@ -1,4 +1,21 @@
-<div class="btn btn-outline-primary py-0 pt-1 btn-sm", style="width: 200px; height:30px;", id="share_button">
-  <i class="fas fa-copy"></i> Copy the url of this page
-  <input id="copy" name="copy" type="hidden">
+<!-- Button trigger modal -->
+<div data-toggle="modal" data-target="#exampleModal">
+  <div class="btn btn-outline-primary py-0 pt-1 btn-sm", style="width: 200px; height:30px;", id="share_button">
+    <i class="fas fa-copy"></i> Copy the url of this page
+    <input id="copy" name="copy" type="hidden">
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body text-left">
+        <i class="fas fa-copy"></i> Dashboard link has been copied to your clipboard
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
