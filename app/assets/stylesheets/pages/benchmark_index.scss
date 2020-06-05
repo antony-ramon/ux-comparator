@@ -20,6 +20,24 @@
 
 .benchmark-table {
   height: 70vh;
+
+  tbody tr:first-child {
+      border-bottom: 2px solid #4d4dea;
+  }
+
+  tbody tr:nth-of-type(odd) {
+      background: transparent;
+  }
+
+  tr:first-child th {
+    border: none;
+    color: grey;
+    font-weight: 400;
+  }
+
+  th, td {
+    border-top: 1px solid #bcbcbc;
+  }
 }
 
 
@@ -29,7 +47,7 @@
 }
 
 #bookmark .fa-plus-circle {
-    color: white; 
+    color: white;
 }
 
 #share_button {
