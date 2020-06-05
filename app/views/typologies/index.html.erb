@@ -76,7 +76,7 @@
                 <%= image_tag "free.png", style:"height:70px;" %>
               </th>
             <% elsif company.name == "SFR"%>
-              <th class="align-middle" style="background-color: rgb(235,235,235);">
+              <th class="align-middle" style="background-color: rgb(200,200,200);">
                 <%= image_tag "sfr.png", style:"height:60px;" %>
               </th>
             <% elsif company.name == "Orange"%>
@@ -101,13 +101,13 @@
           <th class="align-middle"><%= typology.title %></th>
           <% @companies.each do |company| %>
             <% if company.name == "SFR" %>
-              <td class="align-middle" style="background-color: rgb(235,235,235);">
+              <td class="align-middle" style="background-color: rgb(200,200,200);">
                 <div>
                   <%= Indicator.find_by(typology: typology, company: company).content %>
                 </div>
               </td>
               <% else %>
-                <td>
+                <td class="align-middle">
                   <div>
                     <%= Indicator.find_by(typology: typology, company: company).content %>
                   </div>
