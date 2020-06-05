@@ -45,48 +45,80 @@
   </div>
 
 
-<% else %>
+  <% else %>
 
   <% @field = Field.find_by(name: params[:field_name]) %>
   <% @process_name = params[:process_name] %>
   <% @typologies = policy_scope(Typology).where(process_name: @process_name, field: @field) %>
   <% @companies = Company.where(field: @field) %>
 
-  <div class="container d-flex justify-content-end pt-4 text-right align-middle mb-3">
+  <div class="container d-flex justify-content-end pt-4 text-right align-middle">
     <%= render 'copy_url' %>
     <div id="bookmark" class="mx-2">
       <%= render 'bookmark', typologies: @typologies %>
     </div>
   </div>
 
-  <div class="container p-1">
+  <div class="container pt-4">
     <table class="table table-striped text-center align-middle benchmark-table">
-        <tr>
-          <th class="align-middle"></th>
-          <% @companies.each do |company| %>
-
-            <% if current_user.company == company.name %>
+      <tr>
+        <th class="align-middle" style="height:10px;"></th>
+        <% @companies.each do |company| %>
+          <% if current_user.company == company.name %>
             <th id="user-company-title">
-            <div id="user-company">
-              <%= company.name %>
-            </div>
+              <div id="user-company">
+                <%= company.name %>
+              </div>
             </th>
+          <% else %>
+            <% if company.name == "Free" %>
+              <th class="align-middle">
+                <%= image_tag "free.png", style:"height:70px;" %>
+              </th>
+            <% elsif company.name == "SFR"%>
+              <th class="align-middle" style="background-color: rgb(235,235,235);">
+                <%= image_tag "sfr.png", style:"height:60px;" %>
+              </th>
+            <% elsif company.name == "Orange"%>
+              <th class="align-middle">
+                <%= image_tag "orange.png", style:"height:60px;" %>
+              </th>
+            <% elsif company.name == "Bouygues Telecom"%>
+              <th class="align-middle">
+                <%= image_tag "bouygues.jpg", style:"height:90px;" %>
+              </th>
             <% else %>
-            <th class="align-middle"><%= company.name %></th>
+              <th>
+                <%= company.name %>
+              </th>
+            <% end %>
+            </th>
+          <% end %>
+        <% end %>
+      </tr>
+      <% @typologies.each do |typology| %>
+        <tr>
+          <th class="align-middle"><%= typology.title %></th>
+          <% @companies.each do |company| %>
+            <% if company.name == "SFR" %>
+              <td class="align-middle" style="background-color: rgb(235,235,235);">
+                <div>
+                  <%= Indicator.find_by(typology: typology, company: company).content %>
+                </div>
+              </td>
+              <% else %>
+                <td>
+                  <div>
+                    <%= Indicator.find_by(typology: typology, company: company).content %>
+                  </div>
+              </td>
             <% end %>
           <% end %>
         </tr>
-        <% @typologies.each do |typology| %>
-          <tr>
-            <th class="align-middle"><%= typology.title %></th>
-              <% @companies.each do |company| %>
-              <td class="align-middle"><%= Indicator.find_by(typology: typology, company: company).content %></td>
-            <% end %>
-          </tr>
-        <% end %>
+      <% end %>
     </table>
   </div>
-    <div class="container p-1">
-      <p class="text-center" style="color: #28288D"><em>This benchmark was created with data collected by the UX-Comparator team</em></p>
-    </div>
+  <div class="container p-1">
+    <p class="text-center" style="color: #28288D"><em>This benchmark was created with data collected by the UX-Comparator team</em></p>
+  </div>
 <% end %>
