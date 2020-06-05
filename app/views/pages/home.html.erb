@@ -1,6 +1,9 @@
 <% content_for(:html_title) { 'UX-Comparator' } %>
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= asset_path 'banner1.jpg'%>)">
+  <div class="pb-4 mb-2">
+    <h4 style="color: white;">Identify UX quick-wins with just a few clicks.<h4>
+  </div>
 	<%=  image_tag("logo_tagline_white.png", alt: "Edit Entry") %>
   <%= link_to dashboard_path do %>
     <button type="button" class="btn btn-primary py-0" style="height:40px;">My dashboard</button>
