@@ -6,11 +6,11 @@
 
 
 <% if liked_by_user > 0 %>
-  <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light", style: "width: 200px; height:30px", method: :put do %>
+  <%= link_to unlike_typology_path(typology), remote: true, class: "btn btn-light btn-sm text-muted font-weight-light py-1", style: "width: 200px; height:30px", method: :put do %>
     <i class="far fa-trash-alt"></i> Remove from favorites
   <% end %>
 <% else %>
-  <%= link_to like_typology_path(typology), remote: true, class: "btn btn-primary py-0", style: "width: 200px; height:30px", method: :put do %>
-    <i class="fas fa-plus-circle"></i> Add to favorites!
+  <%= link_to like_typology_path(typology), remote: true, class: "btn btn-primary py-1", style: "width: 200px; height:30px", method: :put do %>
+    <i class="fas fa-plus-circle p-1 white"></i> Add to favorites!
   <% end %>
 <% end %>

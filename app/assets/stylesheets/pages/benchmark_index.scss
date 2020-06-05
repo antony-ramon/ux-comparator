@@ -25,16 +25,21 @@
 
 #bookmark .btn {
     padding:0.25rem 0.5rem;
+    font-size: 14px;
 }
 
-#bookmark .btn-success:hover .fa-plus-circle {
-    color: white;
+#bookmark .fa-plus-circle {
+    color: white; 
 }
 
 #share_button {
   display: inline-block;
   font-family: 'Lato', "sans-serif";
   font-size: 14px;
+  border-radius: $border-radius;
+  .fa-copy {
+    color: $primary;
+  }
   &:hover {
     i {
       color:white !important;
