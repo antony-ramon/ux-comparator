@@ -4,7 +4,7 @@
  --><!-- <button type="button" class="buttons" id="rating-button" data-toggle="modal" data-target="#exampleModal">TOP 20 companies rating</button> -->
 
 <div class="dashboard-container container">
-  <% @field_names = Field.pluck(:name) %>
+  <% @field_names = Field.pluck(:name).uniq %>
   <% @process_names = Typology.pluck(:process_name).uniq %>
 
   <div class="info-container bd-highlight">

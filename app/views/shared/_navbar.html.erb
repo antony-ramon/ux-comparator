@@ -1,4 +1,4 @@
-<% @field_names = Field.pluck(:name) %>
+<% @field_names = Field.pluck(:name).uniq %>
 <% @process_names = Typology.pluck(:process_name).uniq %>
 
 <div class="navbar logged pos-f-t">
