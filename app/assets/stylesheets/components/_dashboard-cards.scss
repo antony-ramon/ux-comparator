@@ -56,4 +56,28 @@
 .see-all a {
   padding: 0;
 }
+//DASHBOARD-ARTICLES
+.dash-background__white {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  padding: 10px;
+  line-height: 1.3em;
+  font-size: .8em;
+  width: 80%;
+  border-radius: $border-radius;
+}
+.dash-card__flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-pic__br {
+  border-radius: $border-radius;
+  background-repeat: no-repeat;
+}
+
 
