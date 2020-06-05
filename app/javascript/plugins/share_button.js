@@ -9,7 +9,6 @@ const share_url = () => {
       url_element.select();
       document.execCommand("copy");
       url_element.type = "hidden";
-      alert("The benchmark url has been copied in the clipboard");
     });
   };
 };
