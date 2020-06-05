@@ -1,0 +1,5 @@
+meta_product_name: "UX Comparator - UX Benchmarks"
+meta_title: "UX-Comparator - Compare all UX"
+meta_description: "UX Comparator, a website that will map and benchmark many customer experiences by creating benchmark-able KPIs, with frequent updates."
+meta_image: "favicon.ico" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
